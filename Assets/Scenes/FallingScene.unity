@@ -1421,7 +1421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landablePlaces: []
-  gustSpeed: 0.05
+  gustSpeed: 1
   gustDirection: {x: 0, y: 0, z: 0}
 --- !u!65 &241708202
 BoxCollider:
@@ -7841,7 +7841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landablePlaces: []
-  gustSpeed: 0.05
+  gustSpeed: 1
   gustDirection: {x: 0, y: 0, z: 0}
 --- !u!65 &1082379987
 BoxCollider:
@@ -7914,7 +7914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gustSpeed: 1
-  gustDirection: {x: 0, y: 1, z: 0}
+  gustDirection: {x: 1, y: 1, z: 0}
 --- !u!4 &1090614166
 Transform:
   m_ObjectHideFlags: 0
@@ -12071,7 +12071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landablePlaces: []
-  gustSpeed: 0.05
+  gustSpeed: 1
   gustDirection: {x: 0, y: 0, z: 0}
 --- !u!65 &1526682704
 BoxCollider:
@@ -14762,7 +14762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landablePlaces: []
-  gustSpeed: 0.05
+  gustSpeed: 1
   gustDirection: {x: 0, y: 0, z: 0}
 --- !u!65 &1774805850
 BoxCollider:
@@ -16820,7 +16820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landablePlaces: []
-  gustSpeed: 0.05
+  gustSpeed: 1
   gustDirection: {x: 0, y: 0, z: 0}
 --- !u!65 &1927804965
 BoxCollider:
@@ -18258,7 +18258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landablePlaces: []
-  gustSpeed: 0.05
+  gustSpeed: 1
   gustDirection: {x: 0, y: 0, z: 0}
 --- !u!65 &2104815005
 BoxCollider:

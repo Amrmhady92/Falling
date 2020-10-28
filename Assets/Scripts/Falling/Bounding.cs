@@ -28,6 +28,10 @@ public class Bounding : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        print("gustVelocity :" + gustDirection * gustSpeed * Time.deltaTime);
+    }
     /*private void Update()
     {
         Debug.DrawRay(transform.position, gustDirection, Color.red, 100);
@@ -36,7 +40,6 @@ public class Bounding : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         MoveTransform(other.transform);
-        gustSpeed += gustSpeed;
     }
 
     void MoveTransform(Transform playerT)
