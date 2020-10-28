@@ -34,9 +34,25 @@ public class GameManager : MonoBehaviour
     public void LoadNewScene(LandablePlace scene) {
         landingPlaceName = scene.placeName;
         restartPosition = scene.transform.position + (Vector3.up *20);
+
         SceneManager.LoadScene(scene.placeName);
-    
     }
+
+    public IEnumerator LoadNewScenes(LandablePlace scene, float delay)
+    {
+        landingPlaceName = scene.placeName;
+        restartPosition = scene.transform.position + (Vector3.up * 20);
+        StartCoroutine(FindObjectOfType<UIFade>().FadeIn(delay));
+
+        while (delay > 0)
+        {
+            delay -= Time.deltaTime;
+            yield return null;
+        }
+
+        SceneManager.LoadScene(scene.placeName);
+    }
+
     public void ReturnToMainScene(string placeName)
     {
         SceneManager.LoadScene("FallingScene");

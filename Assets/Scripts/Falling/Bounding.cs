@@ -28,10 +28,6 @@ public class Bounding : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        print("gustVelocity :" + gustDirection * gustSpeed * Time.deltaTime);
-    }
     /*private void Update()
     {
         Debug.DrawRay(transform.position, gustDirection, Color.red, 100);
