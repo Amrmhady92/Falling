@@ -12,6 +12,15 @@ ModelImporter:
   - first:
       74: 1023992570608409904
     second: rig|Walk
+  - first:
+      74: 4912943100378593619
+    second: rig|Diving
+  - first:
+      74: -6719322250173136143
+    second: rig|Pick up
+  - first:
+      74: -744182525847794315
+    second: rig|Scan
   externalObjects: {}
   materials:
     materialImportMode: 1
