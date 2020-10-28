@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LandablePlace : MonoBehaviour
 {
+    public string placeName;
     public Transform place;
     float coolDownTimer = 20;
     public bool landable = true;
@@ -23,9 +24,11 @@ public class LandablePlace : MonoBehaviour
     {
         if (landable)
         {
-            other.transform.position = place.transform.position + Vector3.up;
+            GameManager.instance.LoadNewScene(this);
+
+            /*other.transform.position = place.transform.position + Vector3.up;
             other.GetComponent<PlayerFalling>().state = PlayerFalling.State.Walking;
-            other.GetComponent<PlayerFalling>().landedPlace = transform;
+            other.GetComponent<PlayerFalling>().landedPlace = transform;*/
         }
     }
 }

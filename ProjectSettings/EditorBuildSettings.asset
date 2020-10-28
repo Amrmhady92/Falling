@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/FallingScene.unity
+    guid: 3d864356d79df455cbfaa5d3765d5801
+  - enabled: 1
+    path: Assets/Scenes/Desert.unity
+    guid: 410aceeff9e87463dbf563d0d61153d1
+  - enabled: 1
+    path: Assets/Scenes/Forest.unity
+    guid: 390f9352a5d4d49d9bc71c6c0a8e33db
+  - enabled: 1
+    path: Assets/Scenes/Plains.unity
+    guid: 4eda1b97b85924f0ead2c8e88e19b319
+  - enabled: 1
+    path: Assets/Scenes/Rocky Hills.unity
+    guid: 8912abe1f085b4025ad2dd59aa8b79a2
   m_configObjects: {}
