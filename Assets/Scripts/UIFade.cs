@@ -18,10 +18,11 @@ public class UIFade : MonoBehaviour
     }
 
     IEnumerator FadeOut(float duration) {
+        float speed = 1 / duration;
         float percent = 1;
         while (percent > 0)
         {
-            percent -= duration * Time.deltaTime;
+            percent -= speed * Time.deltaTime;
             fadePlane.color = Color.Lerp(fadedColor, startColor,  percent);
             yield return null;
         }
@@ -30,13 +31,11 @@ public class UIFade : MonoBehaviour
 
     public IEnumerator FadeIn(float duration)
     {
-        print("start");
+        float speed = 1 / duration;
         float percent = 0;
         while (percent < 1)
         {
-
-            print(percent);
-            percent += duration * Time.deltaTime;
+            percent += speed * Time.deltaTime;
             fadePlane.color = Color.Lerp(fadedColor, startColor, percent);
             yield return null;
         }

@@ -5,21 +5,13 @@ using UnityEngine;
 public class WindGust : MonoBehaviour
 {
     public float gustSpeed;
-    public bool scriptedDirection;
-    public Vector2 gustSpeedMinMax;
     public Vector3 gustDirection;
-
-
 
     private void Start()
     {
-        gustSpeed = Random.Range(gustSpeedMinMax.x, gustSpeedMinMax.y);
-        if (!scriptedDirection)
+        if (gustDirection == Vector3.zero)
         {
-            gustDirection = new Vector3(Random.Range(-1, 1), Random.Range(0, 1), Random.Range(-1, 1));
-            if (gustDirection == Vector3.zero) {
-                gustDirection = Vector3.up;
-            }
+            gustDirection = Vector3.up;
         }
         if (gustDirection.magnitude > 1)
         {

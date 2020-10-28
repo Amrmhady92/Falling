@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     {
          if (landingPlaceName != "") { 
             if (Input.GetKeyDown(KeyCode.Space)) {
-                ReturnToMainScene(landingPlaceName);
+                StartCoroutine(ReturnToMainScene());
             }
         }
     }
@@ -43,23 +43,19 @@ public class GameManager : MonoBehaviour
         landingPlaceName = scene.placeName;
         restartPosition = scene.transform.position + (Vector3.up * 20);
         StartCoroutine(FindObjectOfType<UIFade>().FadeIn(delay));
-
-        while (delay > 0)
-        {
-            delay -= Time.deltaTime;
-            yield return null;
-        }
+        yield return new WaitForSeconds(delay);
 
         SceneManager.LoadScene(scene.placeName);
     }
 
-    public void ReturnToMainScene(string placeName)
+    public IEnumerator ReturnToMainScene()
     {
+        StartCoroutine(FindObjectOfType<UIFade>().FadeIn(0.5f));
+        yield return new WaitForSeconds(0.5f);
+
         SceneManager.LoadScene("FallingScene");
 
         Invoke("ResetPlayerPosition", .05f);
-
-      
     }
 
     void ResetPlayerPosition() {

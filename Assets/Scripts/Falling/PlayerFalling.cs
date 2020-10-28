@@ -14,57 +14,50 @@ public class PlayerFalling : MonoBehaviour
     public LayerMask unlandable;
 
     public Transform body;
-
-    float timeSinceGust;
-    float gustTimeThreshold;
-    public Vector2 timeBetweenGustsMinMax;
-
-    public WindGust gustPrefab;
+    public Animator animator;
+    public ParticleSystem diveWind;
+    float originalEmission;
 
     private void Start()
     {
-        gustTimeThreshold = Random.Range(timeBetweenGustsMinMax.x, timeBetweenGustsMinMax.y);
+        originalEmission = diveWind.emission.rateOverTime.constant;
     }
 
     private void Update()
     {
-
-        timeSinceGust += Time.deltaTime;
-
-        if (timeSinceGust >= gustTimeThreshold) {
-            SpawnGust();
-            gustTimeThreshold = Random.Range(timeBetweenGustsMinMax.x, timeBetweenGustsMinMax.y);
-            timeSinceGust = 0;
+        Vector3 inputHorizontal = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0);
+        Vector3 inputVertical = new Vector3(0, 0, Input.GetAxisRaw("Vertical"));
+        float actualFallSpeed = fallSpeed;
+        if (inputVertical.z > 0)
+        {
+            actualFallSpeed = fallSpeed + fallSpeedIncreaseIfTiltingForward;
+            var diveEmission = diveWind.emission;
+            diveEmission.rateOverTime = originalEmission * 2;
+        }
+        else
+        {
+            actualFallSpeed = fallSpeed;
+            var diveEmission = diveWind.emission;
+            diveEmission.rateOverTime = originalEmission;
         }
 
-        Vector3 inputHorizontal = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0);
-            Vector3 inputVertical = new Vector3(0, 0, Input.GetAxisRaw("Vertical"));
-            float actualFallSpeed = fallSpeed;
-            if (inputVertical.z > 0)
-            {
-                actualFallSpeed = fallSpeed + fallSpeedIncreaseIfTiltingForward;
-            }
-            else
-            {
-                actualFallSpeed = fallSpeed;
-            }
+        transform.Rotate(transform.up, inputHorizontal.x);
+        transform.Translate(Vector3.forward * (moveSpeed + (inputVertical.z * moveSpeedIncreaseIfTiltingForward)) * Time.deltaTime);
+        animator.SetFloat("LeftRight", inputHorizontal.x, 1, Time.deltaTime);
+        animator.SetFloat("Dive", inputVertical.z, 1f, Time.deltaTime);
 
-            transform.Rotate(transform.up, inputHorizontal.x);
-            transform.Translate(Vector3.forward * (moveSpeed + (inputVertical.z * moveSpeedIncreaseIfTiltingForward)) * Time.deltaTime);
-            Ray ray = new Ray(transform.position, Vector3.down);
-            if (!Physics.Raycast(ray, 3, unlandable))
-            {
-                transform.Translate(Vector3.down * actualFallSpeed * Time.deltaTime);
-            }
-        
-    }
-
-    void SpawnGust() {
-
-        Vector3 spawnPoint = transform.position + (transform.forward * 4);
-        WindGust newGust = Instantiate(gustPrefab, spawnPoint, Quaternion.identity);
-        newGust.scriptedDirection = false;
-        Destroy(newGust.gameObject, 5f);
+        Ray downRay = new Ray(transform.position, Vector3.down);
+        if (!Physics.Raycast(downRay, 3, unlandable))
+        {
+            transform.Translate(Vector3.down * actualFallSpeed * Time.deltaTime);
+        }
+        Ray collisionRay = new Ray(transform.position, transform.forward);
+        if (Physics.Raycast(collisionRay, 4, unlandable))
+        {
+            FindObjectOfType<GustSpawner>().SpawnUpdraft();
+        }
 
     }
+
+
 }
