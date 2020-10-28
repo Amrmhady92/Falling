@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     public IntField seedsCount;
     public float interactRadius = 1;
-    Animator animator;
+    public Animator animator;
     vThirdPersonController controller;
     [SerializeField] Scanner scanner;
 
@@ -85,8 +85,8 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && nearestInteractable != null && !interacting)
         {
             interacting = true;
-            nearestInteractable.Interact();
-            animator.Play("PickUp");
+            nearestInteractable.Interact(this.gameObject);
+            //animator.Play("PickUp");
             nearestInteractable = null;
             DisableControllers();
             StartCoroutine(WaitThenDo(1.5f, () => { EnableControllers(); interacting = false; }));

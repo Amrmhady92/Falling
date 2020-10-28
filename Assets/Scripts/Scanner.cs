@@ -12,7 +12,6 @@ public class Scanner : MonoBehaviour
     public float coneScaleTime = 3;
     public float coneCoolDown = 2;
 
-
     public bool ScanArea(Action onComplete)
     {
         if (scanning) return false;
@@ -25,8 +24,8 @@ public class Scanner : MonoBehaviour
         {
             StartCoroutine(WaitThenDo(coneCoolDown, () => { scanning = false; }));
             //coneObject.SetActive(false);
-            coneObject.transform.localScale = Vector3.zero;
-
+            //coneObject.transform.localScale = Vector3.zero;
+            coneObject.transform.LeanScale(Vector3.zero, 0.2f);
             onComplete?.Invoke();
         });
 
@@ -41,6 +40,8 @@ public class Scanner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!scanning) return;
+
         Debug.Log("Hits");
         InteractableObject interactable = other.GetComponent<InteractableObject>();
         if(interactable == null) interactable = other.GetComponentInChildren<InteractableObject>();

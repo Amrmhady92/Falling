@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[RequireComponent(typeof(Outline))]
 public abstract class InteractableObject : MonoBehaviour
 {
     public bool interactable = true;
@@ -26,12 +25,15 @@ public abstract class InteractableObject : MonoBehaviour
     internal virtual void Init()
     {
         outliner = this.GetComponent<Outline>();
-        if (outliner == null) Debug.LogError("No outline componenet");
-        if (outliner != null) outliner.enabled = false ;
+        if (outliner == null)
+        {
+            highlightable = false;
+        }
+        else outliner.enabled = false;
 
     }
 
-    public virtual void Interact() 
+    public virtual void Interact(GameObject player = null) 
     {
         if (!interactable)
         {
