@@ -10094,6 +10094,9 @@ MonoBehaviour:
   randomDirectionMin: {x: -4, y: 0, z: -1}
   randomDirectionMax: {x: 4, y: 1, z: -1}
   gustPrefab: {fileID: 7605401904169522822, guid: a5bc44465b44b4947a70594c8b94c28f, type: 3}
+  windParticles:
+  - {fileID: 1966216063150309897, guid: a23cb87bb49daf949abddae0f992c98c, type: 3}
+  - {fileID: 3241473266018310534, guid: 845236a2dee2e1a44ad68be868083800, type: 3}
 --- !u!4 &1340254306
 Transform:
   m_ObjectHideFlags: 0
