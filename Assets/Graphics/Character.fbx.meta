@@ -21,6 +21,12 @@ ModelImporter:
   - first:
       74: -744182525847794315
     second: rig|Scan
+  - first:
+      74: -3003039194601329813
+    second: rig|Falling.001
+  - first:
+      74: -5458684581249512169
+    second: rig|Falling.002
   externalObjects: {}
   materials:
     materialImportMode: 1
