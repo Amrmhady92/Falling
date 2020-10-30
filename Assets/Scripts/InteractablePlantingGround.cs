@@ -40,7 +40,8 @@ public class InteractablePlantingGround : InteractableObject
 
         detected = true;
 
-        billboard.transform.localScale = Vector3.zero;
+        billboard.transform.localScale = Vector3.forward; // need only x and y to be zero
+
         if (useCenterAsPosition)
         {
             billboard.transform.position = this.transform.position;
@@ -60,7 +61,7 @@ public class InteractablePlantingGround : InteractableObject
     {
         base.Interact();
         interactable = false;
-        if (player != null) player.GetComponent<Animator>().Play("PickUp");
+        //if (player != null) player.GetComponent<Animator>().Play("PickUp");
         Debug.Log("Interacted with ground");
     }
 }

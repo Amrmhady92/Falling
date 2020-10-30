@@ -5,15 +5,15 @@ using UnityEngine;
 public class BillBoard : MonoBehaviour
 {
     public float minDistance = 2;
-    [SerializeField]Player player;
+    public GameObject target;
     void Update()
     {
-        if(player != null)
+        if(target != null)
         {
-            if(Vector3.Distance(this.transform.position,player.transform.position) > minDistance)
+            if(Vector3.Distance(this.transform.position, target.transform.position) > minDistance)
             {
-                this.transform.LookAt(player.transform);
-                this.transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
+                this.transform.LookAt(target.transform);
+                //this.transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
             }
         }
     }

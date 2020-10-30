@@ -13,14 +13,16 @@ public class Scanner : MonoBehaviour
     public float rotationEndAngle = -60;
     public float coneRotationTime = 2.5f;
     public float coneScaleTime = 0.5f;
-    //public float coneCoolDown = 5;
-    //public float animationTimeHandUp = 2;
+
+    public GameValues gameValues;
+    public float coneCoolDown = 3.5f;
+    public float animationTimeHandUp = 2;
     public bool ScanArea(Action onComplete)
     {
         if (scanning) return false;
         scanning = true;
 
-        StartCoroutine(WaitThenDo(2/*animationTimeHandUp*/, () => 
+        StartCoroutine(WaitThenDo(animationTimeHandUp, () => 
         {
             coneObject.transform.localScale = Vector3.zero;
             coneObject.transform.localEulerAngles = new Vector3(coneObject.transform.localEulerAngles.x, coneObject.transform.localEulerAngles.y, rotationStartAngle);
@@ -38,8 +40,16 @@ public class Scanner : MonoBehaviour
                 ).setOnComplete(() =>
                 {
                     coneObject.transform.LeanScale(Vector3.zero, 0.1f);
+
+                    if (this.gameValues != null)
+                    {
+                        Debug.Log("Popping message");
+                        string msg = this.gameValues.GetGroundStatus();
+                        Player.Instance.GetComponent<MessagePopUp>().PopMessage(msg, msg != "", 3);
+                    }
+
                     this.StopAllCoroutines();
-                    this.StartCoroutine(WaitThenDo(3.5f/*coneCoolDown*/, () =>
+                    this.StartCoroutine(WaitThenDo(coneCoolDown, () =>
                     {
                         scanning = false;
                         onComplete?.Invoke();
@@ -58,9 +68,7 @@ public class Scanner : MonoBehaviour
 
     IEnumerator WaitThenDo(float wait, Action callbackDo)
     {
-        Debug.Log(Time.time);
         yield return new WaitForSeconds(wait);
-        Debug.Log(Time.time);
 
         callbackDo?.Invoke();
     }

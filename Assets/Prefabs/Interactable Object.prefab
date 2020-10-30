@@ -182,4 +182,5 @@ MonoBehaviour:
   selectedOutlineWidth: 5
   detected: 0
   seedsCount: {fileID: 11400000, guid: 071d3039dc90d454fa34606b974c1350, type: 2}
+  gameValues: {fileID: 11400000, guid: 59a43103c56ff54409d2a025be94c9b8, type: 2}
   descaleTime: 1
