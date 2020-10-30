@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
         if (!interacting)
         {
             foundInteractable = false;
-            detectionSphereCenter = this.transform.position + this.transform.forward * interactRadius;
+            detectionSphereCenter = this.transform.position + this.transform.forward * interactRadius * 0.9f;
             hits = Physics.OverlapSphere(detectionSphereCenter, interactRadius);
             maxDistance = interactRadius * 2;
             if (nearestInteractable != null)
@@ -159,6 +159,6 @@ public class Player : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(this.transform.position + this.transform.forward * interactRadius, interactRadius);
+        Gizmos.DrawWireSphere(this.transform.position + this.transform.forward * interactRadius * 0.9f, interactRadius);
     }
 }

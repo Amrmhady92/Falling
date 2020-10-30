@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280b6494e92091a44b5814bae0c76756, type: 3}
   m_Name: GameValues
   m_EditorClassIdentifier: 
-  currentWorld: 0
+  currentWorld: 3
   popupMessagesPlants:
   - Oh what a nice plant, I got a seed to plant it later
   - I can plant this seed later
