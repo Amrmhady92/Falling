@@ -26,7 +26,10 @@ ModelImporter:
     second: rig|Walk
   - first:
       74: -8670862549262551908
-    second: rig|Scan (1)
+    second: rig|Diving
+  - first:
+      74: 4872357150655070384
+    second: rig|Diving (1)
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -150,11 +153,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: rig|Scan (1)
-      takeName: rig|Scan
+      name: rig|Diving (1)
+      takeName: rig|Diving
       internalID: 0
       firstFrame: 0
-      lastFrame: 160
+      lastFrame: 90
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
