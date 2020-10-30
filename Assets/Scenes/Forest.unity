@@ -1269,6 +1269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657e49edb7e3c3e41ab292cfed37a08a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 1386616493}
   cameraTargetPosition: {x: 24.5, y: 5, z: 10}
   cameraTargetRotation: {x: 0, y: 0, z: 0}
   cameraTargetLookAt: {x: 0, y: 0, z: 0}
@@ -8732,6 +8733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657e49edb7e3c3e41ab292cfed37a08a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 1386616493}
   cameraTargetPosition: {x: 36, y: 5, z: 10}
   cameraTargetRotation: {x: 0, y: -20, z: 0}
   cameraTargetLookAt: {x: 0, y: 0, z: 0}
@@ -9773,6 +9775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657e49edb7e3c3e41ab292cfed37a08a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 1386616493}
   cameraTargetPosition: {x: 13, y: 5, z: 10}
   cameraTargetRotation: {x: 0, y: 20, z: 0}
   cameraTargetLookAt: {x: 0, y: 0, z: 0}

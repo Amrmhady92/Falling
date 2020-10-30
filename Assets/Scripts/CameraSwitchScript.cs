@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraSwitchScript : MonoBehaviour
 {
+    public Camera camera;
     [Tooltip("Where the camera will be positioned")]
     public Vector3 cameraTargetPosition;
     [Tooltip("The rotation the camera will have")]
@@ -24,9 +25,9 @@ public class CameraSwitchScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Camera.main.transform.position = cameraTargetPosition;
-        Camera.main.transform.eulerAngles = cameraTargetRotation;
+        camera.transform.position = cameraTargetPosition;
+        camera.transform.eulerAngles = cameraTargetRotation;
         if (cameraTargetLookAt != new Vector3(0, 0, 0))
-            Camera.main.transform.LookAt(cameraTargetLookAt);
+            camera.transform.LookAt(cameraTargetLookAt);
     }
 }
