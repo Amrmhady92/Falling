@@ -9,32 +9,59 @@ public class Scanner : MonoBehaviour
     public GameObject coneObject;
     public bool scanning = false;
     public Vector3 coneFinalScale = new Vector3(1, 1, 1);
-    public float coneScaleTime = 3;
-    public float coneCoolDown = 2;
-
+    public float rotationStartAngle = -1;
+    public float rotationEndAngle = -60;
+    public float coneRotationTime = 2.5f;
+    public float coneScaleTime = 0.5f;
+    //public float coneCoolDown = 5;
+    //public float animationTimeHandUp = 2;
     public bool ScanArea(Action onComplete)
     {
         if (scanning) return false;
         scanning = true;
 
-        //coneObject.SetActive(true);
-        coneObject.transform.localScale = Vector3.zero;
-
-        coneObject.transform.LeanScale(coneFinalScale, coneScaleTime).setOnComplete(() =>
+        StartCoroutine(WaitThenDo(2/*animationTimeHandUp*/, () => 
         {
-            StartCoroutine(WaitThenDo(coneCoolDown, () => { scanning = false; }));
-            //coneObject.SetActive(false);
-            //coneObject.transform.localScale = Vector3.zero;
-            coneObject.transform.LeanScale(Vector3.zero, 0.2f);
-            onComplete?.Invoke();
-        });
+            coneObject.transform.localScale = Vector3.zero;
+            coneObject.transform.localEulerAngles = new Vector3(coneObject.transform.localEulerAngles.x, coneObject.transform.localEulerAngles.y, rotationStartAngle);
 
+            coneObject.transform.LeanScale(coneFinalScale, coneScaleTime).setOnComplete(() =>
+            {
+
+                coneObject.LeanValue(rotationStartAngle, rotationEndAngle, coneRotationTime).setOnUpdate((float v) =>
+                {
+                    coneObject.transform.localEulerAngles =
+                    new Vector3(coneObject.transform.localEulerAngles.x,
+                                coneObject.transform.localEulerAngles.y,
+                                v);
+                }
+                ).setOnComplete(() =>
+                {
+                    coneObject.transform.LeanScale(Vector3.zero, 0.1f);
+                    this.StopAllCoroutines();
+                    this.StartCoroutine(WaitThenDo(3.5f/*coneCoolDown*/, () =>
+                    {
+                        scanning = false;
+                        onComplete?.Invoke();
+                    }));
+                //coneObject.SetActive(false);
+                //coneObject.transform.localScale = Vector3.zero;
+                
+                });
+            });
+        }));
         return true;
+
+        //coneObject.SetActive(true);
+
     }
 
     IEnumerator WaitThenDo(float wait, Action callbackDo)
     {
+        Debug.Log(Time.time);
         yield return new WaitForSeconds(wait);
+        Debug.Log(Time.time);
+
         callbackDo?.Invoke();
     }
 

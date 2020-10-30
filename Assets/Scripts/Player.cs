@@ -107,6 +107,7 @@ public class Player : MonoBehaviour
     {
         if (!scanner.ScanArea(EnableControllers)) return;
         DisableControllers();
+        animator.Play("Scan");
     }
 
     public void EnableControllers()
