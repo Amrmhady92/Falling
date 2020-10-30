@@ -9,32 +9,67 @@ public class Scanner : MonoBehaviour
     public GameObject coneObject;
     public bool scanning = false;
     public Vector3 coneFinalScale = new Vector3(1, 1, 1);
-    public float coneScaleTime = 3;
-    public float coneCoolDown = 2;
+    public float rotationStartAngle = -1;
+    public float rotationEndAngle = -60;
+    public float coneRotationTime = 2.5f;
+    public float coneScaleTime = 0.5f;
 
+    public GameValues gameValues;
+    public float coneCoolDown = 3.5f;
+    public float animationTimeHandUp = 2;
     public bool ScanArea(Action onComplete)
     {
         if (scanning) return false;
         scanning = true;
 
-        //coneObject.SetActive(true);
-        coneObject.transform.localScale = Vector3.zero;
-
-        coneObject.transform.LeanScale(coneFinalScale, coneScaleTime).setOnComplete(() =>
+        StartCoroutine(WaitThenDo(animationTimeHandUp, () => 
         {
-            StartCoroutine(WaitThenDo(coneCoolDown, () => { scanning = false; }));
-            //coneObject.SetActive(false);
-            //coneObject.transform.localScale = Vector3.zero;
-            coneObject.transform.LeanScale(Vector3.zero, 0.2f);
-            onComplete?.Invoke();
-        });
+            coneObject.transform.localScale = Vector3.zero;
+            coneObject.transform.localEulerAngles = new Vector3(coneObject.transform.localEulerAngles.x, coneObject.transform.localEulerAngles.y, rotationStartAngle);
 
+            coneObject.transform.LeanScale(coneFinalScale, coneScaleTime).setOnComplete(() =>
+            {
+
+                coneObject.LeanValue(rotationStartAngle, rotationEndAngle, coneRotationTime).setOnUpdate((float v) =>
+                {
+                    coneObject.transform.localEulerAngles =
+                    new Vector3(coneObject.transform.localEulerAngles.x,
+                                coneObject.transform.localEulerAngles.y,
+                                v);
+                }
+                ).setOnComplete(() =>
+                {
+                    coneObject.transform.LeanScale(Vector3.zero, 0.1f);
+
+                    if (this.gameValues != null)
+                    {
+                        Debug.Log("Popping message");
+                        string msg = this.gameValues.GetGroundStatus();
+                        Player.Instance.GetComponent<MessagePopUp>().PopMessage(msg, msg != "", 3);
+                    }
+
+                    this.StopAllCoroutines();
+                    this.StartCoroutine(WaitThenDo(coneCoolDown, () =>
+                    {
+                        scanning = false;
+                        onComplete?.Invoke();
+                    }));
+                //coneObject.SetActive(false);
+                //coneObject.transform.localScale = Vector3.zero;
+                
+                });
+            });
+        }));
         return true;
+
+        //coneObject.SetActive(true);
+
     }
 
     IEnumerator WaitThenDo(float wait, Action callbackDo)
     {
         yield return new WaitForSeconds(wait);
+
         callbackDo?.Invoke();
     }
 

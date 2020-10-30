@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 {
 
     public IntField seedsCount;
+    public GameValues gameValues;
+
     public float interactRadius = 1;
     public Animator animator;
     vThirdPersonController controller;
@@ -24,6 +26,17 @@ public class Player : MonoBehaviour
     float maxDistance;
     bool interacting = false;
     bool foundInteractable = false;
+
+    private static Player instance;
+
+    public static Player Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
+
     private void Start()
     {
 
@@ -31,6 +44,8 @@ public class Player : MonoBehaviour
         controller = this.GetComponent<vThirdPersonController>();
         animator = this.GetComponent<Animator>();
         seedsCount.Value = 0;
+        if (gameValues == null) gameValues = Resources.Load<GameValues>("GameValues");
+        if (instance == null) instance = this;
         //seedsCount.OnValueChanged += OnValueChange;
 
     }
@@ -40,7 +55,7 @@ public class Player : MonoBehaviour
         if (!interacting)
         {
             foundInteractable = false;
-            detectionSphereCenter = this.transform.position + this.transform.forward * interactRadius;
+            detectionSphereCenter = this.transform.position + this.transform.forward * interactRadius * 0.9f;
             hits = Physics.OverlapSphere(detectionSphereCenter, interactRadius);
             maxDistance = interactRadius * 2;
             if (nearestInteractable != null)
@@ -95,6 +110,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && !interacting)
         {
             ScanArea();
+            
         }
 
         
@@ -107,6 +123,8 @@ public class Player : MonoBehaviour
     {
         if (!scanner.ScanArea(EnableControllers)) return;
         DisableControllers();
+        this.GetComponent<MessagePopUp>().PopMessage("Scanning Ground", false, 1.5f);
+        animator.Play("Scan");
     }
 
     public void EnableControllers()
@@ -141,6 +159,6 @@ public class Player : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(this.transform.position + this.transform.forward * interactRadius, interactRadius);
+        Gizmos.DrawWireSphere(this.transform.position + this.transform.forward * interactRadius * 0.9f, interactRadius);
     }
 }
