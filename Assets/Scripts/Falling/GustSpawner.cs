@@ -116,7 +116,6 @@ public class GustSpawner : MonoBehaviour
 
     void CheckIfPlayerOutsideBounds() { 
         if (playerTransform.position.x > borders.left && playerTransform.position.x < borders.right && playerTransform.position.z > borders.bottom && playerTransform.position.z < borders.top) {
-            print("inside");
             playerOutsideBounds = false;
         }
         else {
@@ -185,13 +184,13 @@ public class GustSpawner : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+    /*    Gizmos.color = Color.red;
         Gizmos.DrawLine(borders.bottomLeft, borders.topLeft);
         Gizmos.DrawLine(borders.topLeft, borders.topRight);
         Gizmos.DrawLine(borders.topRight, borders.bottomRight);
         Gizmos.DrawLine(borders.bottomRight, borders.bottomLeft);
         Gizmos.DrawSphere(terrain.bounds.min, 1);
-        Gizmos.DrawSphere(terrain.bounds.max, 1);
+        Gizmos.DrawSphere(terrain.bounds.max, 1);*/
     }
 
 

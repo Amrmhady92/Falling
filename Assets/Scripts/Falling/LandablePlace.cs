@@ -5,9 +5,10 @@ using UnityEngine;
 public class LandablePlace : MonoBehaviour
 {
     public string placeName;
-    float coolDownTimer = 20;
+    float coolDownTimer = 10;
     public bool landable = true;
     public Transform takeOffPoint;
+    public bool drawGizmos;
 
     private void Update()
     {
@@ -30,7 +31,12 @@ public class LandablePlace : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(takeOffPoint.transform.position, 1);
+        if (drawGizmos)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(takeOffPoint.transform.position, 1);
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireCube(transform.position, transform.localScale);
+        }
     }
 }

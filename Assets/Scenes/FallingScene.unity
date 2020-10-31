@@ -631,7 +631,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &114363414
 GameObject:
@@ -906,7 +906,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157117655}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 38.2, z: 11.9}
+  m_LocalPosition: {x: -0.503, y: 1.306, z: 0.607}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1629617591}
@@ -1400,7 +1400,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: 10}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &253215900
 MonoBehaviour:
@@ -1417,6 +1417,7 @@ MonoBehaviour:
   placeName: Forest
   landable: 1
   takeOffPoint: {fileID: 1227396962}
+  drawGizmos: 0
 --- !u!4 &253215903
 Transform:
   m_ObjectHideFlags: 0
@@ -1426,7 +1427,7 @@ Transform:
   m_GameObject: {fileID: 253215898}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -81, y: -5.96, z: -95.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 1227396962}
   m_Father: {fileID: 1023782323}
@@ -4091,6 +4092,11 @@ Transform:
   m_Father: {fileID: 1394822674}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!218 &842756246 stripped
+Terrain:
+  m_CorrespondingSourceObject: {fileID: 1904928975209979588, guid: 5fd2853e5be3eb146a22229b462f97b8, type: 3}
+  m_PrefabInstance: {fileID: 7270820432719205975}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &850427579
 GameObject:
   m_ObjectHideFlags: 0
@@ -4371,7 +4377,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: 10}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &896418292
 MonoBehaviour:
@@ -4388,6 +4394,7 @@ MonoBehaviour:
   placeName: Rocky Hills
   landable: 1
   takeOffPoint: {fileID: 1962006838}
+  drawGizmos: 0
 --- !u!4 &896418293
 Transform:
   m_ObjectHideFlags: 0
@@ -4397,7 +4404,7 @@ Transform:
   m_GameObject: {fileID: 896418290}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.6199999, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 1962006838}
   m_Father: {fileID: 1023782323}
@@ -5092,7 +5099,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972343902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.6, y: 5.1, z: -12.7}
+  m_LocalPosition: {x: 0.476, y: 0.899, z: -0.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1470660436}
@@ -6228,7 +6235,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227396961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.37, y: 12.87, z: 11.9}
+  m_LocalPosition: {x: 0.72, y: 0.99, z: 0.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 253215903}
@@ -6761,7 +6768,7 @@ MonoBehaviour:
   rotationAnimator: {fileID: 850427582}
   myRigidbody: {fileID: 1333289544}
   diveWind: {fileID: 102497354}
-  noWindDistanceThreshold: 5
+  noWindDistanceThreshold: 25
   withinDistanceThreshold: 0
 --- !u!136 &1333289543
 CapsuleCollider:
@@ -6820,7 +6827,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333289541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.7, y: 100, z: 23.2}
+  m_LocalPosition: {x: 0, y: 100, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 850427580}
@@ -6828,7 +6835,7 @@ Transform:
   - {fileID: 1149593001}
   - {fileID: 102497352}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1336904392
 GameObject:
@@ -7952,6 +7959,7 @@ MonoBehaviour:
   placeName: Desert
   landable: 1
   takeOffPoint: {fileID: 972343903}
+  drawGizmos: 0
 --- !u!65 &1470660433
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7963,7 +7971,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: 10}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1470660436
 Transform:
@@ -7974,7 +7982,7 @@ Transform:
   m_GameObject: {fileID: 1470660431}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -87.100006, y: -2.0100002, z: -10.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 972343903}
   m_Father: {fileID: 1023782323}
@@ -8163,6 +8171,62 @@ Transform:
   m_Father: {fileID: 1580136717}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1510023249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1510023250}
+  - component: {fileID: 1510023251}
+  m_Layer: 0
+  m_Name: FogHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1510023250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510023249}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1510023251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510023249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c35d836bd17a44cf483cd2546e5b3c01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fogPrefab: {fileID: 6411092015576209044, guid: 8d5b2860553ce409699141d4e34fa4ef, type: 3}
+  terrain: {fileID: 842756246}
+  gameManager: {fileID: 1942845982}
+  playerTransform: {fileID: 1333289547}
+  viewDistance: 20
+  fogMask:
+    serializedVersion: 2
+    m_Bits: 8192
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4096
+  objectsPerAxis: 5
+  fogCutoffHeight: 15
 --- !u!1 &1520554353
 GameObject:
   m_ObjectHideFlags: 0
@@ -8660,7 +8724,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: 10}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1629617590
 MonoBehaviour:
@@ -8677,6 +8741,7 @@ MonoBehaviour:
   placeName: Plains
   landable: 1
   takeOffPoint: {fileID: 157117656}
+  drawGizmos: 0
 --- !u!4 &1629617591
 Transform:
   m_ObjectHideFlags: 0
@@ -8686,7 +8751,7 @@ Transform:
   m_GameObject: {fileID: 1629617588}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -6.61, z: -93.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 157117656}
   m_Father: {fileID: 1023782323}
@@ -9999,7 +10064,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962006837}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.29, y: 32.34, z: 7.59}
+  m_LocalPosition: {x: -0.366, y: 1.466, z: -0.532}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 896418293}
@@ -10681,7 +10746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7923418969258658650, guid: 5fd2853e5be3eb146a22229b462f97b8, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7923418969258658650, guid: 5fd2853e5be3eb146a22229b462f97b8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10694,6 +10759,10 @@ PrefabInstance:
     - target: {fileID: 7923418969258658650, guid: 5fd2853e5be3eb146a22229b462f97b8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7923418969258658650, guid: 5fd2853e5be3eb146a22229b462f97b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fd2853e5be3eb146a22229b462f97b8, type: 3}
