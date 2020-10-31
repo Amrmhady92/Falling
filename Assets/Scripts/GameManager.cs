@@ -41,7 +41,8 @@ public class GameManager : MonoBehaviour
     public IEnumerator LoadNewScenes(LandablePlace scene, float delay)
     {
         landingPlaceName = scene.placeName;
-        restartPosition = scene.transform.position + (Vector3.up * 20);
+        restartPosition = scene.takeOffPoint.position;
+        //restartPosition = scene.transform.position + (Vector3.up * 20);
         StartCoroutine(FindObjectOfType<UIFade>().FadeIn(delay));
         yield return new WaitForSeconds(delay);
 

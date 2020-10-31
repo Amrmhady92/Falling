@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7605401904169522816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 10, z: 5.7}
-  m_LocalScale: {x: 100, y: 8, z: 6}
+  m_LocalScale: {x: 100, y: 10, z: 8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gustSpeed: 0
   gustDirection: {x: 1, y: 1, z: 0}
+  timeToGustFullStrenght: 0.25
 --- !u!65 &7605401904169522823
 BoxCollider:
   m_ObjectHideFlags: 0
