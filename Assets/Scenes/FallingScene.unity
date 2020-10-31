@@ -4101,6 +4101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 850427580}
   - component: {fileID: 850427581}
+  - component: {fileID: 850427582}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -4137,6 +4138,25 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &850427582
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850427579}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c92d3858c8ea644a5aae46e90611b7c9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &853294003
 GameObject:
   m_ObjectHideFlags: 0
@@ -6738,6 +6758,7 @@ MonoBehaviour:
     m_Bits: 4096
   body: {fileID: 850427580}
   animator: {fileID: 1333289545}
+  rotationAnimator: {fileID: 850427582}
   myRigidbody: {fileID: 1333289544}
   diveWind: {fileID: 102497354}
   noWindDistanceThreshold: 5

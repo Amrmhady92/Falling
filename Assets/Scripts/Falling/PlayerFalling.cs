@@ -15,6 +15,7 @@ public class PlayerFalling : MonoBehaviour
 
     public Transform body;
     public Animator animator;
+    public Animator rotationAnimator;
 
     public Rigidbody myRigidbody;
     Vector3 myVelocity;
@@ -54,8 +55,10 @@ public class PlayerFalling : MonoBehaviour
         transform.Rotate(transform.up, input.x);
         myVelocity = transform.forward * (moveSpeed + (input.z * moveSpeedIncreaseIfTiltingForward));
 
-        animator.SetFloat("LeftRight", input.x, 1, Time.deltaTime);
+        //animator.SetFloat("LeftRight", input.x, 1, Time.deltaTime);
         animator.SetFloat("Dive", input.z, 1f, Time.deltaTime);
+        rotationAnimator.SetFloat("LeftRight", input.x, 1, Time.deltaTime);
+        rotationAnimator.SetFloat("Dive", input.z, 1f, Time.deltaTime);
 
         CheckIfCloseToHittingGround(actualFallSpeed);
         CheckIfCloseToHittingObject();
