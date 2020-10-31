@@ -57,7 +57,7 @@ public class FogHandler : MonoBehaviour
             for (int y = 0; y < objectsPerAxis; y++)
             {
                 Vector3 pos = new Vector3 ((transform.position.x - width/2) + chunkSizeX/2 + chunkSizeX * x, 0, (transform.position.z - height / 2) + chunkSizeZ / 2 + chunkSizeZ * y);
-                pos.y = HeightAtPoint(pos);
+                pos.y = HeightAtPoint(pos) + 5;
 
                 if (pos.y < fogCutoffHeight && gameManager.activeFogSpawnPositions[x, y] == true) { 
                     GameObject newFog = Instantiate(fogPrefab, pos, Quaternion.Euler(new Vector3(0, Random.Range(0, 360))));

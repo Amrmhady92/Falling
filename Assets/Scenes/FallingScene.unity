@@ -8214,6 +8214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c35d836bd17a44cf483cd2546e5b3c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnFog: 1
   fogPrefab: {fileID: 6411092015576209044, guid: 8d5b2860553ce409699141d4e34fa4ef, type: 3}
   terrain: {fileID: 842756246}
   gameManager: {fileID: 1942845982}
