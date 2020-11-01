@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public string landingPlaceName;
     public Vector3 restartPosition;
 
-
     public bool[,] activeFogSpawnPositions;
 
     // Start is called before the first frame update
@@ -56,6 +55,13 @@ public class GameManager : MonoBehaviour
             }
         }
         Invoke("ResetPlayerPosition", .05f);
+    }
+
+    public IEnumerator LoadFinalScene() {
+        StartCoroutine(FindObjectOfType<UIFade>().FadeIn(0.5f));
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("FinalScene");
+
     }
 
     void ResetPlayerPosition() {

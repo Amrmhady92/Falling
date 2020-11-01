@@ -85,8 +85,8 @@ namespace Invector.vCharacterController
 
         public virtual void MoveInput()
         {
-            cc.input.x = Input.GetAxis(horizontalInput) /2;
-            cc.input.z = Input.GetAxis(verticallInput) /2;
+            cc.input.x = Input.GetAxis(horizontalInput) *.4f;
+            cc.input.z = Input.GetAxis(verticallInput) * .4f;
         }
 
         protected virtual void CameraInput()

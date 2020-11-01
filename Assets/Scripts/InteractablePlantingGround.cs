@@ -12,6 +12,8 @@ public class InteractablePlantingGround : InteractableObject
     public bool useCenterAsPosition = false;
     public float riseUpTime = 1;
 
+    public GameObject confirmer;
+    public float timeToDecideToPlant = 5f;
     
     internal override void Start()
     {
@@ -30,6 +32,7 @@ public class InteractablePlantingGround : InteractableObject
             }
 
         }
+        confirmer.SetActive(false);
     }
     public override void Highlight(bool onOff)
     {
@@ -63,5 +66,19 @@ public class InteractablePlantingGround : InteractableObject
         interactable = false;
         //if (player != null) player.GetComponent<Animator>().Play("PickUp");
         Debug.Log("Interacted with ground");
+
+        confirmer.SetActive(true);
+        Invoke("TurnOffConfirmer", timeToDecideToPlant);
+    }
+
+    public void ConfirmPlanting() {
+
+        StartCoroutine(GameManager.instance.LoadFinalScene());
+
+    }
+
+    void TurnOffConfirmer() {
+        confirmer.SetActive(false);
+        interactable = true;
     }
 }
