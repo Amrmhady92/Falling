@@ -8,6 +8,7 @@ public class JumpOffPoint : MonoBehaviour
     public BoxCollider col;
     vThirdPersonInput controller;
     GameManager gameManager;
+    MessagePopUp messagePopUp;
     bool returning = false;
 
     private void Start()
@@ -15,6 +16,7 @@ public class JumpOffPoint : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         col = GetComponent<BoxCollider>();
         controller = FindObjectOfType<vThirdPersonInput>();
+        messagePopUp = FindObjectOfType<MessagePopUp>();
                 
     }
 
@@ -22,6 +24,7 @@ public class JumpOffPoint : MonoBehaviour
     {
         //Show text "press space to jump off"
         controller.canJump = true;
+        messagePopUp.PopMessage("press space to jump off", false, 2f);
     }
 
     private void OnTriggerStay(Collider other)
