@@ -6,9 +6,12 @@ public class WindGust : MonoBehaviour
 {
     public float gustSpeed;
     public Vector3 gustDirection;
+    public float timeToGustFullStrenght = .25f;
+    Vector3 windVelocity;
 
     private void Start()
     {
+        windVelocity = Vector3.zero;
         if (gustDirection == Vector3.zero)
         {
             gustDirection = Vector3.up;
@@ -21,13 +24,7 @@ public class WindGust : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        MoveTransform(other.transform);
+        windVelocity = Vector3.Lerp(windVelocity, gustDirection * gustSpeed, timeToGustFullStrenght *Time.fixedDeltaTime);
+        other.GetComponent<Rigidbody>().AddForce(windVelocity, ForceMode.Impulse);
     }
-
-    void MoveTransform(Transform playerT)
-    {
-        playerT.Translate(gustDirection * gustSpeed * Time.deltaTime, Space.World);
-    }
-
-
 }

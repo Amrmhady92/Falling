@@ -16,34 +16,73 @@ public class GustSpawner : MonoBehaviour
     private ParticleSystem windParticleSystem;
     Transform playerTransform;
 
+    public TerrainCollider terrain;
+    public float borderBuffer;
+    MapBorder borders;
+
+    bool playerOutsideBounds;
+    float outsideBoundsSpawnCooldown = .25f;
+
     void Start()
     {
         gustTimeThreshold = Random.Range(timeBetweenGustsMinMax.x, timeBetweenGustsMinMax.y);
         playerTransform = FindObjectOfType<PlayerFalling>().transform;
+        borders = CalculateBorders();
     }
 
    
     void Update()
     {
-        timeSinceGust += Time.deltaTime;
+        CheckIfPlayerOutsideBounds();
 
-        if (timeSinceGust >= gustTimeThreshold)
+        if (!playerTransform.GetComponent<PlayerFalling>().withinDistanceThreshold && !playerOutsideBounds)
         {
-            SpawnGust();
-            gustTimeThreshold = Random.Range(timeBetweenGustsMinMax.x, timeBetweenGustsMinMax.y);
-            timeSinceGust = 0;
+            timeSinceGust += Time.deltaTime;
+            if (timeSinceGust >= gustTimeThreshold)
+            {
+                SpawnGust();
+                gustTimeThreshold = Random.Range(timeBetweenGustsMinMax.x, timeBetweenGustsMinMax.y);
+                timeSinceGust = 0;
+            }
+        }
+        if (playerOutsideBounds) {
+            outsideBoundsSpawnCooldown -= Time.deltaTime;
+        
         }
     }
 
     void SpawnGust()
     {
+        Vector3 direction = new Vector3(Random.Range(randomDirectionMin.x, randomDirectionMax.x), Random.Range(randomDirectionMin.y, randomDirectionMax.y), Random.Range(randomDirectionMin.z, randomDirectionMax.z));
         Vector3 spawnPoint = playerTransform.position + (playerTransform.forward * 4);
-        WindGust newGust = Instantiate(gustPrefab, spawnPoint, playerTransform.rotation);
+        WindGust newGust = Instantiate(gustPrefab, spawnPoint, Quaternion.Euler(direction));
         newGust.gustSpeed = Random.Range(gustSpeedMinMax.x, gustSpeedMinMax.y);
-        newGust.gustDirection = new Vector3(Random.Range(randomDirectionMin.x, randomDirectionMax.x), Random.Range(randomDirectionMin.y, randomDirectionMax.y), Random.Range(randomDirectionMin.z, randomDirectionMax.z));
+        newGust.gustDirection = direction;
         newGust.transform.parent = transform;
 
-        GameObject newWindParticle = Instantiate(windParticles[Random.Range(0, windParticles.Count)], spawnPoint, Quaternion.LookRotation(newGust.gustDirection));
+        CreateParticleEffect(spawnPoint, newGust.gustDirection, newGust.gustSpeed);
+
+        Destroy(newGust.gameObject, 5f);
+
+    }
+
+    void SpawnGustFromBorder(Vector3 direction)
+    {
+        Vector3 spawnPoint = playerTransform.position + (playerTransform.forward * 4);
+
+        WindGust newGust = Instantiate(gustPrefab, spawnPoint, Quaternion.Euler(direction));
+        newGust.gustSpeed = gustSpeedMinMax.y;
+        newGust.gustDirection = direction;
+        newGust.transform.parent = transform;
+
+        CreateParticleEffect(spawnPoint, direction, newGust.gustSpeed);
+
+        Destroy(newGust.gameObject, 5f);
+
+    }
+
+    void CreateParticleEffect(Vector3 spawnPoint, Vector3 direction, float gustSpeed) {
+        GameObject newWindParticle = Instantiate(windParticles[Random.Range(0, windParticles.Count)], spawnPoint, Quaternion.LookRotation(direction));
         newWindParticle.transform.eulerAngles = new Vector3(
             newWindParticle.transform.eulerAngles.x,
             newWindParticle.transform.eulerAngles.y - 90,
@@ -52,19 +91,107 @@ public class GustSpawner : MonoBehaviour
         windParticleSystem = newWindParticle.GetComponent<ParticleSystem>();
         windParticleSystem.Play();
         var windparticleVelocity = windParticleSystem.velocityOverLifetime;
-        windparticleVelocity.speedModifier = Random.Range(gustSpeedMinMax.x + 2, gustSpeedMinMax.y + 2) / 10;
+        windparticleVelocity.speedModifier = (gustSpeed + 2) / 10;
 
-        Destroy(newGust.gameObject, 5f);
         Destroy(newWindParticle, 5f);
     }
 
     public void SpawnUpdraft() {
         Vector3 spawnPoint = playerTransform.position + (playerTransform.forward * 2);
         WindGust newGust = Instantiate(gustPrefab, spawnPoint, playerTransform.rotation);
-        newGust.gustSpeed = gustSpeedMinMax.y;
+        newGust.gustSpeed = gustSpeedMinMax.y * 2;
         newGust.gustDirection = (Vector3.up * 3) + Vector3.back;
         newGust.transform.parent = transform;
         Destroy(newGust.gameObject, 5f);
 
     }
+
+    MapBorder CalculateBorders() {
+        Vector3 bottomLeft = new Vector3(terrain.bounds.min.x, 0, terrain.bounds.min.z);
+        Vector3 topLeft = new Vector3(terrain.bounds.min.x, 0, terrain.bounds.max.z);
+        Vector3 bottomRight = new Vector3(terrain.bounds.max.x, 0, terrain.bounds.min.z);
+        Vector3 topRight = new Vector3(terrain.bounds.max.x, 0, terrain.bounds.max.z);
+        return new MapBorder(bottomLeft, topLeft, bottomRight, topRight, borderBuffer);
+    }
+
+    void CheckIfPlayerOutsideBounds() { 
+        if (playerTransform.position.x > borders.left && playerTransform.position.x < borders.right && playerTransform.position.z > borders.bottom && playerTransform.position.z < borders.top) {
+            playerOutsideBounds = false;
+        }
+        else {
+            playerOutsideBounds = true;
+            if (outsideBoundsSpawnCooldown < 0)
+            {
+                if (playerTransform.position.x < borders.left)
+                {
+                    //out on left
+                    //print("outide on side");
+                    SpawnGustFromBorder(Vector3.right);
+                }
+                if (playerTransform.position.x > borders.right)
+                {
+                    //out on right
+                    //print("outide on side");
+                    SpawnGustFromBorder(Vector3.left);
+                }
+                if (playerTransform.position.z < borders.bottom)
+                {
+                    //out on bottom
+                    //print("outide on bottom");
+                    SpawnGustFromBorder(Vector3.forward);
+                }
+                if (playerTransform.position.z > borders.top)
+                {
+                    //out on top
+                    //print("outide on top");
+                    SpawnGustFromBorder(Vector3.back);
+                }
+                outsideBoundsSpawnCooldown = .25f;
+            }
+        }
+
+    }
+
+    public struct MapBorder
+    {
+        public Vector3 bottomLeft;
+        public Vector3 topLeft;
+        public Vector3 bottomRight;
+        public Vector3 topRight;
+
+        public float top;
+        public float bottom;
+        public float left;
+        public float right;
+
+        float borderBuffer;
+
+        public MapBorder(Vector3 _bottomLeft, Vector3 _topLeft, Vector3 _bottomRight, Vector3 _topRight, float _borderBuffer)
+        {
+            bottomLeft = _bottomLeft;
+            topLeft = _topLeft;
+            bottomRight = _bottomRight;
+            topRight = _topRight;
+
+            borderBuffer = _borderBuffer;
+            top = topLeft.z - borderBuffer;
+            bottom = bottomLeft.z + borderBuffer;
+            left = bottomLeft.x + borderBuffer;
+            right = bottomRight.x - borderBuffer;
+
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+    /*    Gizmos.color = Color.red;
+        Gizmos.DrawLine(borders.bottomLeft, borders.topLeft);
+        Gizmos.DrawLine(borders.topLeft, borders.topRight);
+        Gizmos.DrawLine(borders.topRight, borders.bottomRight);
+        Gizmos.DrawLine(borders.bottomRight, borders.bottomLeft);
+        Gizmos.DrawSphere(terrain.bounds.min, 1);
+        Gizmos.DrawSphere(terrain.bounds.max, 1);*/
+    }
+
+
 }
