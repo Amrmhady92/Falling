@@ -5,11 +5,16 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+
 public class Player : MonoBehaviour
 {
 
-    public IntField seedsCount;
+    public IntField desertSeedsCount;
+    public IntField forestSeedsCount;
+    public IntField rockySeedsCount;
+    public IntField plainsSeedsCount;
     public GameValues gameValues;
+    public World currentWorld;
 
     public float interactRadius = 1;
     public Animator animator;
@@ -37,16 +42,17 @@ public class Player : MonoBehaviour
         }
     }
 
+
     private void Start()
     {
-
+        gameValues.currentWorld = currentWorld;
         Cursor.visible = false;
         controller = this.GetComponent<vThirdPersonController>();
         animator = this.GetComponent<Animator>();
-        
-        StartCoroutine(WaitThenDo(0.5f, () => { animator.Play("Land"); }));
-
-        seedsCount.Value = 0;
+        //desertSeedsCount.Value  = 0;
+        //forestSeedsCount.Value  = 0;
+        //rockySeedsCount.Value   = 0;
+        //plainsSeedsCount.Value  = 0;
         if (gameValues == null) gameValues = Resources.Load<GameValues>("GameValues");
         if (instance == null) instance = this;
         //seedsCount.OnValueChanged += OnValueChange;
@@ -105,10 +111,9 @@ public class Player : MonoBehaviour
             interacting = true;
             nearestInteractable.Interact(this.gameObject);
             //animator.Play("PickUp");
-            DisableControllers();
-            StartCoroutine(WaitThenDo(nearestInteractable.interactionAnimationTime, () => { EnableControllers(); interacting = false; }));
             nearestInteractable = null;
-
+            DisableControllers();
+            StartCoroutine(WaitThenDo(1.5f, () => { EnableControllers(); interacting = false; }));
         }
 
         if (Input.GetKeyDown(KeyCode.R) && !interacting)
@@ -121,13 +126,6 @@ public class Player : MonoBehaviour
     }
 
 
-    public void StopMovementForATime(float time)
-    {
-        Debug.Log("Stopping");
-        DisableControllers();
-        StartCoroutine(WaitThenDo(time, EnableControllers));
-    }
-    
 
 
     public void ScanArea()

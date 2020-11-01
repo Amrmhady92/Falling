@@ -519,6 +519,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075554eb2293afb449f56dc3fd4c7b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  desertSeedsCount: {fileID: 11400000, guid: 74b49e59c98ab5245b83b56d2792d7f2, type: 2}
+  forestSeedsCount: {fileID: 11400000, guid: 70348608aeb6add43b0702826bd25929, type: 2}
+  rockySeedsCount: {fileID: 11400000, guid: ed1efe81b03b9b04f87c1444acb83bfc, type: 2}
+  plainsSeedsCount: {fileID: 11400000, guid: dd227ca3b3c09d947b2102bb4d9efce5, type: 2}
   fallingScene: FallingScene
 --- !u!4 &1392796737
 Transform:

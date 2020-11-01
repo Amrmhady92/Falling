@@ -8,19 +8,24 @@ public class CameraFollow : MonoBehaviour
     public Transform target;
     public Transform lookTarget;
     Vector3 smoothVelocity;
+    public float smoothMoveTime = 0.5f;
 
-    // Start is called before the first frame update
+    Vector3 smoothLookVelocity;
+    public float smoothLookMoveTime = 0.5f;
+
     void Start()
     {
         targetOffset = transform.position - target.position;
+
     }
 
-    // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = Vector3.SmoothDamp(transform.position, target.position + targetOffset, ref smoothVelocity,  0.1f);
-        Debug.DrawLine(transform.position, transform.forward * 20, Color.red);
+        transform.position = Vector3.SmoothDamp(transform.position, target.position + targetOffset, ref smoothVelocity, smoothMoveTime);
+        Debug.DrawLine(transform.position, transform.position + transform.forward * 20, Color.red);
+
         transform.LookAt(lookTarget);
+
     }
 }
 
