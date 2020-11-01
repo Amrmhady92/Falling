@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+
 public class Player : MonoBehaviour
 {
 
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
     public IntField rockySeedsCount;
     public IntField plainsSeedsCount;
     public GameValues gameValues;
+    public World currentWorld;
 
     public float interactRadius = 1;
     public Animator animator;
@@ -43,7 +45,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-
+        gameValues.currentWorld = currentWorld;
         Cursor.visible = false;
         controller = this.GetComponent<vThirdPersonController>();
         animator = this.GetComponent<Animator>();
