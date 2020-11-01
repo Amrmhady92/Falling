@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour
     public void SetActiveFogSpawnPositions(int arraySize) {
         if (activeFogSpawnPositions == null)
         {
-            print("setting");
             activeFogSpawnPositions = new bool[arraySize, arraySize];
             for (int x = 0; x < arraySize; x++)
             {

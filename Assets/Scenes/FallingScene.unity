@@ -6883,7 +6883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1340254305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8218,11 +8218,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c35d836bd17a44cf483cd2546e5b3c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drawChuckGizmos: 0
+  drawPlayerViewGizmo: 0
   spawnFog: 1
   fogPrefab: {fileID: 6411092015576209044, guid: 8d5b2860553ce409699141d4e34fa4ef, type: 3}
   terrain: {fileID: 842756246}
   gameManager: {fileID: 1942845982}
   playerTransform: {fileID: 1333289547}
+  sampleOffset: {x: 0, y: 0, z: 0}
   viewDistance: 20
   fogMask:
     serializedVersion: 2
@@ -8230,7 +8233,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4096
-  objectsPerAxis: 5
+  objectsPerAxis: 12
   fogCutoffHeight: 15
 --- !u!1 &1520554353
 GameObject:

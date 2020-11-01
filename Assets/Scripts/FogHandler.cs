@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FogHandler : MonoBehaviour
 {
+    public bool drawChuckGizmos;
+    public bool drawPlayerViewGizmo;
     public bool spawnFog;
     public GameObject fogPrefab;
     public Terrain terrain;
@@ -11,6 +13,7 @@ public class FogHandler : MonoBehaviour
     public GameManager gameManager;
 
     public Transform playerTransform;
+    public Vector3 sampleOffset;
     public float viewDistance = 5;
     public LayerMask fogMask;
     public LayerMask groundMask;
@@ -32,7 +35,7 @@ public class FogHandler : MonoBehaviour
         chunkSizeX = (int)width / objectsPerAxis;
         chunkSizeZ = (int)height / objectsPerAxis;
         playerTransform = FindObjectOfType<PlayerFalling>().transform;
-        gameManager.SetActiveFogSpawnPositions(objectsPerAxis);
+        gameManager.SetActiveFogSpawnPositions(objectsPerAxis +2);
         if (spawnFog)
         {
             SpawnFog();
@@ -43,7 +46,7 @@ public class FogHandler : MonoBehaviour
     {
         if (spawnFog)
         {
-            Vector3 samplePosition = new Vector3(playerTransform.position.x, HeightAtPoint(playerTransform.position), playerTransform.position.z);
+            Vector3 samplePosition = new Vector3(playerTransform.position.x, HeightAtPoint(playerTransform.position), playerTransform.position.z) + sampleOffset;
             Collider[] objectsInRange = Physics.OverlapSphere(samplePosition, viewDistance, fogMask, QueryTriggerInteraction.Collide);
             foreach (Collider c in objectsInRange)
             {
@@ -53,12 +56,18 @@ public class FogHandler : MonoBehaviour
     }
 
     void SpawnFog() { 
-        for (int x = 0; x < objectsPerAxis; x++) {
-            for (int y = 0; y < objectsPerAxis; y++)
+        for (int x = 0; x < objectsPerAxis +2; x++) {
+            for (int y = 0; y < objectsPerAxis+2; y++)
             {
-                Vector3 pos = new Vector3 ((transform.position.x - width/2) + chunkSizeX/2 + chunkSizeX * x, 0, (transform.position.z - height / 2) + chunkSizeZ / 2 + chunkSizeZ * y);
-                pos.y = HeightAtPoint(pos) + 5;
+                Vector3 pos = new Vector3 ((transform.position.x - width/2) - chunkSizeX + chunkSizeX/2 + chunkSizeX * x, 0, (transform.position.z - height / 2) - chunkSizeZ + chunkSizeZ / 2 + chunkSizeZ * y);
+                if (x == 0 || x == objectsPerAxis+1 || y == 0 || y == objectsPerAxis + 1) {
+                    pos.y = 10;
+                }
+                else {
+                    pos.y = HeightAtPoint(pos) + 5;
+                }
 
+                print("XY: " + x + y + " height : " + pos.y);
                 if (pos.y < fogCutoffHeight && gameManager.activeFogSpawnPositions[x, y] == true) { 
                     GameObject newFog = Instantiate(fogPrefab, pos, Quaternion.Euler(new Vector3(0, Random.Range(0, 360))));
                     newFog.transform.parent = transform;
@@ -83,30 +92,40 @@ public class FogHandler : MonoBehaviour
     float HeightAtPoint(Vector3 pointToSample) {
         RaycastHit hit;
         Physics.Raycast(new Vector3(pointToSample.x, 50, pointToSample.z), Vector3.down, out hit, 100, groundMask);
-        return 50 - hit.distance;
+        float posHeight = 50 - hit.distance;
+
+        return posHeight;
     }
 
     private void OnDrawGizmos()
     {
-        //Gizmos.DrawWireSphere(new Vector3(playerTransform.position.x, HeightAtPoint(playerTransform.position), playerTransform.position.z), viewDistance);
 
-    /*    Gizmos.color = Color.red;
-        //Gizmos.DrawWireCube(transform.position, transform.localScale);
-
-        for (int x = 0; x < objectsPerAxis; x++)
+        if (drawPlayerViewGizmo)
         {
-            for (int y = 0; y < objectsPerAxis; y++)
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(new Vector3(playerTransform.position.x, HeightAtPoint(playerTransform.position), playerTransform.position.z) + sampleOffset, viewDistance);
+        }
+        if (drawChuckGizmos)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(transform.position, transform.localScale);
+
+            for (int x = 0; x < objectsPerAxis + 2; x++)
             {
-                Vector3 pos = new Vector3((transform.position.x - width / 2) + chunkSizeX / 2 + chunkSizeX * x, 0, (transform.position.z - height / 2) + chunkSizeZ / 2 + chunkSizeZ * y);
-                pos.y = HeightAtPoint(pos);
-                if (pos.y > fogCutoffHeight) {
-                    Gizmos.color = Color.green;
+                for (int y = 0; y < objectsPerAxis + 2; y++)
+                {
+                    Vector3 pos = new Vector3((transform.position.x - width / 2) - chunkSizeX + chunkSizeX / 2 + chunkSizeX * x, 0, (transform.position.z - height / 2) - chunkSizeZ + chunkSizeZ / 2 + chunkSizeZ * y); pos.y = HeightAtPoint(pos);
+                    if (pos.y > fogCutoffHeight)
+                    {
+                        Gizmos.color = Color.green;
+                    }
+                    else
+                    {
+                        Gizmos.color = Color.red;
+                    }
+                    Gizmos.DrawWireCube(new Vector3(pos.x, 10, pos.z), new Vector3((float)chunkSizeX, 10, (float)chunkSizeZ));
                 }
-                else {
-                    Gizmos.color = Color.red;
-                }
-                Gizmos.DrawWireCube(pos, new Vector3((float)chunkSizeX, 10, (float)chunkSizeZ));
             }
-        }*/
+        }
     }
 }

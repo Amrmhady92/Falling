@@ -23,10 +23,14 @@ public class GustSpawner : MonoBehaviour
     bool playerOutsideBounds;
     float outsideBoundsSpawnCooldown = .25f;
 
+    private void Awake()
+    {
+        playerTransform = FindObjectOfType<PlayerFalling>().transform;
+    }
     void Start()
     {
         gustTimeThreshold = Random.Range(timeBetweenGustsMinMax.x, timeBetweenGustsMinMax.y);
-        playerTransform = FindObjectOfType<PlayerFalling>().transform;
+
         borders = CalculateBorders();
     }
 
@@ -66,17 +70,33 @@ public class GustSpawner : MonoBehaviour
 
     }
 
-    void SpawnGustFromBorder(Vector3 direction)
+    public void SpawnGustInDirection(Vector3 direction)
+    {
+        SpawnGustInDirection(direction, gustSpeedMinMax.y);
+    }
+
+    public void SpawnGustInDirection(Vector3 direction, float velocity)
     {
         Vector3 spawnPoint = playerTransform.position + (playerTransform.forward * 4);
 
         WindGust newGust = Instantiate(gustPrefab, spawnPoint, Quaternion.Euler(direction));
-        newGust.gustSpeed = gustSpeedMinMax.y;
+        newGust.gustSpeed = velocity;
         newGust.gustDirection = direction;
         newGust.transform.parent = transform;
 
         CreateParticleEffect(spawnPoint, direction, newGust.gustSpeed);
 
+        Destroy(newGust.gameObject, 5f);
+
+    }
+
+    public void SpawnUpdraft()
+    {
+        Vector3 spawnPoint = playerTransform.position + (playerTransform.forward * 2);
+        WindGust newGust = Instantiate(gustPrefab, spawnPoint, playerTransform.rotation);
+        newGust.gustSpeed = gustSpeedMinMax.y * 2;
+        newGust.gustDirection = (Vector3.up * 3) + Vector3.back;
+        newGust.transform.parent = transform;
         Destroy(newGust.gameObject, 5f);
 
     }
@@ -96,15 +116,7 @@ public class GustSpawner : MonoBehaviour
         Destroy(newWindParticle, 5f);
     }
 
-    public void SpawnUpdraft() {
-        Vector3 spawnPoint = playerTransform.position + (playerTransform.forward * 2);
-        WindGust newGust = Instantiate(gustPrefab, spawnPoint, playerTransform.rotation);
-        newGust.gustSpeed = gustSpeedMinMax.y * 2;
-        newGust.gustDirection = (Vector3.up * 3) + Vector3.back;
-        newGust.transform.parent = transform;
-        Destroy(newGust.gameObject, 5f);
 
-    }
 
     MapBorder CalculateBorders() {
         Vector3 bottomLeft = new Vector3(terrain.bounds.min.x, 0, terrain.bounds.min.z);
@@ -126,25 +138,25 @@ public class GustSpawner : MonoBehaviour
                 {
                     //out on left
                     //print("outide on side");
-                    SpawnGustFromBorder(Vector3.right);
+                    SpawnGustInDirection(Vector3.right);
                 }
                 if (playerTransform.position.x > borders.right)
                 {
                     //out on right
                     //print("outide on side");
-                    SpawnGustFromBorder(Vector3.left);
+                    SpawnGustInDirection(Vector3.left);
                 }
                 if (playerTransform.position.z < borders.bottom)
                 {
                     //out on bottom
                     //print("outide on bottom");
-                    SpawnGustFromBorder(Vector3.forward);
+                    SpawnGustInDirection(Vector3.forward);
                 }
                 if (playerTransform.position.z > borders.top)
                 {
                     //out on top
                     //print("outide on top");
-                    SpawnGustFromBorder(Vector3.back);
+                    SpawnGustInDirection(Vector3.back);
                 }
                 outsideBoundsSpawnCooldown = .25f;
             }
