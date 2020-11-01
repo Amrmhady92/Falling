@@ -3453,7 +3453,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56c8f2f356c0df479655dbc3da27892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedsCount: {fileID: 11400000, guid: 071d3039dc90d454fa34606b974c1350, type: 2}
+  desertSeedsCount: {fileID: 11400000, guid: 74b49e59c98ab5245b83b56d2792d7f2, type: 2}
+  forestSeedsCount: {fileID: 11400000, guid: 70348608aeb6add43b0702826bd25929, type: 2}
+  rockySeedsCount: {fileID: 11400000, guid: ed1efe81b03b9b04f87c1444acb83bfc, type: 2}
+  plainsSeedsCount: {fileID: 11400000, guid: dd227ca3b3c09d947b2102bb4d9efce5, type: 2}
   gameValues: {fileID: 11400000, guid: 59a43103c56ff54409d2a025be94c9b8, type: 2}
   interactRadius: 0.7
   animator: {fileID: 0}

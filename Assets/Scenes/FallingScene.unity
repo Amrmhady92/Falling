@@ -906,7 +906,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157117655}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.503, y: 1.306, z: 0.607}
+  m_LocalPosition: {x: -0.503, y: 6.05, z: 0.607}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1629617591}
@@ -1417,7 +1417,7 @@ MonoBehaviour:
   placeName: Forest
   landable: 1
   takeOffPoint: {fileID: 1227396962}
-  drawGizmos: 0
+  drawGizmos: 1
 --- !u!4 &253215903
 Transform:
   m_ObjectHideFlags: 0
@@ -4394,7 +4394,7 @@ MonoBehaviour:
   placeName: Rocky Hills
   landable: 1
   takeOffPoint: {fileID: 1962006838}
-  drawGizmos: 0
+  drawGizmos: 1
 --- !u!4 &896418293
 Transform:
   m_ObjectHideFlags: 0
@@ -5099,7 +5099,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972343902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.476, y: 0.899, z: -0.68}
+  m_LocalPosition: {x: 0.476, y: 5.6430006, z: -0.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1470660436}
@@ -6235,7 +6235,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227396961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.72, y: 0.99, z: 0.73}
+  m_LocalPosition: {x: 0.72, y: 5.734, z: 0.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 253215903}
@@ -6883,7 +6883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1340254305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7959,7 +7959,7 @@ MonoBehaviour:
   placeName: Desert
   landable: 1
   takeOffPoint: {fileID: 972343903}
-  drawGizmos: 0
+  drawGizmos: 1
 --- !u!65 &1470660433
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8746,7 +8746,7 @@ MonoBehaviour:
   placeName: Plains
   landable: 1
   takeOffPoint: {fileID: 157117656}
-  drawGizmos: 0
+  drawGizmos: 1
 --- !u!4 &1629617591
 Transform:
   m_ObjectHideFlags: 0
@@ -10069,7 +10069,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962006837}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.366, y: 1.466, z: -0.532}
+  m_LocalPosition: {x: -0.366, y: 6.21, z: -0.532}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 896418293}

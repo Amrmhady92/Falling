@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
+    public IntField desertSeedsCount;
+    public IntField forestSeedsCount;
+    public IntField rockySeedsCount;
+    public IntField plainsSeedsCount;
 
     public string fallingScene = "";
     bool loading = false;
@@ -13,7 +17,16 @@ public class MainMenu : MonoBehaviour
     {
         if (loading) return;
         loading = true;
+
+        desertSeedsCount.Value = 0;
+        forestSeedsCount.Value = 0;
+        rockySeedsCount.Value = 0;
+        plainsSeedsCount.Value = 0;
+
         SceneManager.LoadScene(fallingScene);
+
+
+
     }
 
 
