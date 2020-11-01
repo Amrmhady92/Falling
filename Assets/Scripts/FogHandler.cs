@@ -67,7 +67,6 @@ public class FogHandler : MonoBehaviour
                     pos.y = HeightAtPoint(pos) + 5;
                 }
 
-                print("XY: " + x + y + " height : " + pos.y);
                 if (pos.y < fogCutoffHeight && gameManager.activeFogSpawnPositions[x, y] == true) { 
                     GameObject newFog = Instantiate(fogPrefab, pos, Quaternion.Euler(new Vector3(0, Random.Range(0, 360))));
                     newFog.transform.parent = transform;
