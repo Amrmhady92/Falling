@@ -47,6 +47,9 @@ MonoBehaviour:
   gustSpeed: 0
   gustDirection: {x: 1, y: 1, z: 0}
   timeToGustFullStrenght: 0.25
+  windParticles:
+  - {fileID: 1966216063150309897, guid: a0734678f0f11488685463c048d72a9d, type: 3}
+  - {fileID: 3241473266018310534, guid: 23ea4ac96d57d4ddab79cd71a69fde02, type: 3}
 --- !u!65 &7605401904169522823
 BoxCollider:
   m_ObjectHideFlags: 0

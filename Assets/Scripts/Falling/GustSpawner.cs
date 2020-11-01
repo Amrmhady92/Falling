@@ -64,7 +64,7 @@ public class GustSpawner : MonoBehaviour
         newGust.gustDirection = direction;
         newGust.transform.parent = transform;
 
-        CreateParticleEffect(spawnPoint, newGust.gustDirection, newGust.gustSpeed);
+        //CreateParticleEffect(spawnPoint, newGust.gustDirection, newGust.gustSpeed);
 
         Destroy(newGust.gameObject, 5f);
 
@@ -84,7 +84,7 @@ public class GustSpawner : MonoBehaviour
         newGust.gustDirection = direction;
         newGust.transform.parent = transform;
 
-        CreateParticleEffect(spawnPoint, direction, newGust.gustSpeed);
+        //CreateParticleEffect(spawnPoint, direction, newGust.gustSpeed);
 
         Destroy(newGust.gameObject, 5f);
 
