@@ -25,15 +25,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-         if (landingPlaceName != "") { 
-            if (Input.GetKeyDown(KeyCode.Space)) {
-                StartCoroutine(ReturnToMainScene());
-            }
-        }
-    }
-
     public void LoadNewScene(LandablePlace scene) {
         landingPlaceName = scene.placeName;
         restartPosition = scene.transform.position + (Vector3.up *20);
@@ -75,7 +66,6 @@ public class GameManager : MonoBehaviour
     public void SetActiveFogSpawnPositions(int arraySize) {
         if (activeFogSpawnPositions == null)
         {
-            print("setting");
             activeFogSpawnPositions = new bool[arraySize, arraySize];
             for (int x = 0; x < arraySize; x++)
             {

@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280b6494e92091a44b5814bae0c76756, type: 3}
   m_Name: GameValues
   m_EditorClassIdentifier: 
-  currentWorld: 3
+  currentWorld: 1
   popupMessagesPlants:
   - Oh what a nice plant, I got a seed to plant it later
   - I can plant this seed later
   - Seeds are nice to have
   popupMessagesGroundDesert:
-  - DESERT!!
-  - TOO dry, need water
+  - This place is too dry for you. Don't you think?
+  - The soil here is pretty dry, huh?
   popupMessagesGroundForest:
-  - there is no Sun reaching here
-  - Cant find a good spot to plant here
+  - There's not enough sunlight here.
+  - There's barely any sunlight here.
   popupMessagesGroundRocky:
-  - Floor too hard
-  - its too rocky cant find water
+  - The soil is too poor quality in this area.
+  - The soil quality is pretty poor up here.
   popupMessagesGroundPlains:
-  - I see no reason why not to plant here, but Not good anywa
-  - Its tooo Plain here..
+  - There's too much wind for you here.
+  - This place is way too windy.

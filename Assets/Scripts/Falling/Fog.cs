@@ -16,7 +16,7 @@ public class Fog : MonoBehaviour
     public void RemoveFog() {
         var thisEmission = GetComponent<ParticleSystem>().emission;
         thisEmission.rateOverTime = 0;
-        Destroy(gameObject, 3);
+        Destroy(gameObject, 5);
     }
 
     public void SetPosValues(int x, int y) {
