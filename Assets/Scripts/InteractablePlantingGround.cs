@@ -5,6 +5,10 @@ using UnityEngine;
 public class InteractablePlantingGround : InteractableObject
 {
 
+    public bool displayMessageOnInteraction;
+    public string messageOnInteract;
+    MessagePopUp messagePopUp;
+
     public GameObject billboard;
     public Vector3 billboardStartPosition;
     public Vector3 billboardEndScale;
@@ -33,6 +37,7 @@ public class InteractablePlantingGround : InteractableObject
 
         }
         confirmer.SetActive(false);
+        messagePopUp = FindObjectOfType<MessagePopUp>();
     }
     public override void Highlight(bool onOff)
     {
@@ -66,7 +71,11 @@ public class InteractablePlantingGround : InteractableObject
         interactable = false;
         //if (player != null) player.GetComponent<Animator>().Play("PickUp");
         Debug.Log("Interacted with ground");
-
+        if (displayMessageOnInteraction)
+        {
+            messagePopUp.PopMessage(messageOnInteract, true, 3f);
+            timeToDecideToPlant += 3.5f;
+        }
         confirmer.SetActive(true);
         Invoke("TurnOffConfirmer", timeToDecideToPlant);
     }
@@ -74,7 +83,6 @@ public class InteractablePlantingGround : InteractableObject
     public void ConfirmPlanting() {
 
         StartCoroutine(GameManager.instance.LoadFinalScene());
-
     }
 
     void TurnOffConfirmer() {

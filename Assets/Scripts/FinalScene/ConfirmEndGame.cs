@@ -15,7 +15,7 @@ public class ConfirmEndGame : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        messagePopUp.PopMessage("press E to confirm planting", false, plantingGround.timeToDecideToPlant);
+        messagePopUp.PopMessage("press E to confirm planting", true, plantingGround.timeToDecideToPlant);
     }
 
     private void OnTriggerStay(Collider other)
