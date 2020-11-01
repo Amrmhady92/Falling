@@ -121,7 +121,6 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && !interacting)
         {
             ScanArea();
-            
         }
 
         
@@ -132,8 +131,15 @@ public class Player : MonoBehaviour
 
     public void ScanArea()
     {
-        if (!scanner.ScanArea(EnableControllers)) return;
+        if (!scanner.ScanArea(()=> 
+        { 
+            EnableControllers(); 
+            interacting = false; 
+        }
+        )) return;
+
         DisableControllers();
+        interacting = true;
         this.GetComponent<MessagePopUp>().PopMessage("Scanning Ground", false, 1.5f);
         animator.Play("Scan");
     }
