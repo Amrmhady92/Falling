@@ -45,7 +45,6 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        gameValues.currentWorld = currentWorld;
         Cursor.visible = false;
         controller = this.GetComponent<vThirdPersonController>();
         animator = this.GetComponent<Animator>();
@@ -54,6 +53,9 @@ public class Player : MonoBehaviour
         //rockySeedsCount.Value   = 0;
         //plainsSeedsCount.Value  = 0;
         if (gameValues == null) gameValues = Resources.Load<GameValues>("GameValues");
+        gameValues.currentWorld = currentWorld;
+
+
         if (instance == null) instance = this;
         //seedsCount.OnValueChanged += OnValueChange;
 
