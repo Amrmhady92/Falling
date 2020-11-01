@@ -27,6 +27,7 @@ public class InteractableSeed : InteractableObject
         if (player != null)
         {
             player.GetComponent<Animator>().Play("PickUp");
+            //Player.Instance.StopMovementForATime(2.5f);
             if (gameValues != null) {
                 string msg = gameValues.GetSeedMessage();
                 player.GetComponent<MessagePopUp>().PopMessage(msg, msg != "", 3);

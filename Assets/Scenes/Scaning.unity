@@ -160,6 +160,7 @@ MonoBehaviour:
   selectedOutlineColor: {r: 0.9528302, g: 0.20225172, b: 0.22452764, a: 1}
   detectedOutlineWidth: 3
   selectedOutlineWidth: 5
+  interactionAnimationTime: 2
   detected: 0
   seedsCount: {fileID: 11400000, guid: 071d3039dc90d454fa34606b974c1350, type: 2}
   gameValues: {fileID: 11400000, guid: 59a43103c56ff54409d2a025be94c9b8, type: 2}
@@ -471,7 +472,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1260
+  m_Name: pb_Mesh-1338
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -666,6 +667,7 @@ MonoBehaviour:
   selectedOutlineColor: {r: 0.9528302, g: 0.20225172, b: 0.22452764, a: 1}
   detectedOutlineWidth: 3
   selectedOutlineWidth: 5
+  interactionAnimationTime: 2
   detected: 0
   seedsCount: {fileID: 11400000, guid: 071d3039dc90d454fa34606b974c1350, type: 2}
   gameValues: {fileID: 11400000, guid: 59a43103c56ff54409d2a025be94c9b8, type: 2}
@@ -754,6 +756,7 @@ MonoBehaviour:
   selectedOutlineColor: {r: 0.9528302, g: 0.20225172, b: 0.22452764, a: 1}
   detectedOutlineWidth: 3
   selectedOutlineWidth: 5
+  interactionAnimationTime: 2
   detected: 0
   seedsCount: {fileID: 11400000, guid: 071d3039dc90d454fa34606b974c1350, type: 2}
   gameValues: {fileID: 11400000, guid: 59a43103c56ff54409d2a025be94c9b8, type: 2}
@@ -1171,6 +1174,7 @@ MonoBehaviour:
   selectedOutlineColor: {r: 0, g: 0, b: 0, a: 0}
   detectedOutlineWidth: 3
   selectedOutlineWidth: 5
+  interactionAnimationTime: 2
   detected: 0
   billboard: {fileID: 2086982266}
   billboardStartPosition: {x: 0, y: 0, z: 0}
@@ -1403,50 +1407,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 885632531}
-    - target: {fileID: 1914275169818875159, guid: 73fafe09b9f20f045b4c38eb90bc71e2, type: 3}
-      propertyPath: interactRadius
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2880783024083330593, guid: 73fafe09b9f20f045b4c38eb90bc71e2, type: 3}
-      propertyPath: scalingTime
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3311422324280648515, guid: 73fafe09b9f20f045b4c38eb90bc71e2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3311422324280648515, guid: 73fafe09b9f20f045b4c38eb90bc71e2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3311422324565387114, guid: 73fafe09b9f20f045b4c38eb90bc71e2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3311422324565387114, guid: 73fafe09b9f20f045b4c38eb90bc71e2, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3311422324565387114, guid: 73fafe09b9f20f045b4c38eb90bc71e2, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3311422324565387114, guid: 73fafe09b9f20f045b4c38eb90bc71e2, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3311422324565387116, guid: 73fafe09b9f20f045b4c38eb90bc71e2, type: 3}
-      propertyPath: m_CullTransparentMesh
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3311422324565387117, guid: 73fafe09b9f20f045b4c38eb90bc71e2, type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3311422324565387117, guid: 73fafe09b9f20f045b4c38eb90bc71e2, type: 3}
-      propertyPath: m_fontSize
-      value: 0.3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73fafe09b9f20f045b4c38eb90bc71e2, type: 3}
 --- !u!1001 &5302952144400421358

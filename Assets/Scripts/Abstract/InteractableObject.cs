@@ -15,6 +15,7 @@ public abstract class InteractableObject : MonoBehaviour
     public float detectedOutlineWidth = 3;
     public float selectedOutlineWidth = 5;
 
+    public float interactionAnimationTime = 2;
     public bool detected = false;
 
 

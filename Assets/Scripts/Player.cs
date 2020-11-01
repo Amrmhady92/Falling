@@ -43,6 +43,9 @@ public class Player : MonoBehaviour
         Cursor.visible = false;
         controller = this.GetComponent<vThirdPersonController>();
         animator = this.GetComponent<Animator>();
+        
+        StartCoroutine(WaitThenDo(0.5f, () => { animator.Play("Land"); }));
+
         seedsCount.Value = 0;
         if (gameValues == null) gameValues = Resources.Load<GameValues>("GameValues");
         if (instance == null) instance = this;
@@ -102,9 +105,10 @@ public class Player : MonoBehaviour
             interacting = true;
             nearestInteractable.Interact(this.gameObject);
             //animator.Play("PickUp");
-            nearestInteractable = null;
             DisableControllers();
-            StartCoroutine(WaitThenDo(1.5f, () => { EnableControllers(); interacting = false; }));
+            StartCoroutine(WaitThenDo(nearestInteractable.interactionAnimationTime, () => { EnableControllers(); interacting = false; }));
+            nearestInteractable = null;
+
         }
 
         if (Input.GetKeyDown(KeyCode.R) && !interacting)
@@ -117,6 +121,13 @@ public class Player : MonoBehaviour
     }
 
 
+    public void StopMovementForATime(float time)
+    {
+        Debug.Log("Stopping");
+        DisableControllers();
+        StartCoroutine(WaitThenDo(time, EnableControllers));
+    }
+    
 
 
     public void ScanArea()
