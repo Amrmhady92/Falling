@@ -26,24 +26,37 @@ public class FinalGarden : MonoBehaviour
         if (player.desertSeedsCount.Value > 0 || spawnDesert) {
             GameObject newPlant = Instantiate(desertPlant, plantLocations[0].position,Quaternion.identity, transform);
             GameObject newPlantTwo = Instantiate(desertPlant, plantLocations[4].position, Quaternion.identity, transform);
+            newPlant.GetComponent<InteractableSeed>().interactable = false;
+            newPlantTwo.GetComponent<InteractableSeed>().interactable = false;
+            newPlant.GetComponent<InteractableSeed>().highlightable = false;
+            newPlantTwo.GetComponent<InteractableSeed>().highlightable = false;
         }
         if (player.forestSeedsCount.Value > 0 || spawnForest)
         {
             GameObject newPlant = Instantiate(forestPlant, plantLocations[1].position, Quaternion.identity, transform);
             GameObject newPlantTwo = Instantiate(forestPlant, plantLocations[5].position, Quaternion.identity, transform);
-
+            newPlant.GetComponent<InteractableSeed>().interactable = false;
+            newPlantTwo.GetComponent<InteractableSeed>().interactable = false;
+            newPlant.GetComponent<InteractableSeed>().highlightable = false;
+            newPlantTwo.GetComponent<InteractableSeed>().highlightable = false;
         }
         if (player.rockySeedsCount.Value > 0 || spawnCliffs)
         {
             GameObject newPlant = Instantiate(hillPlant, plantLocations[2].position, Quaternion.identity, transform);
             GameObject newPlantTwo = Instantiate(hillPlant, plantLocations[6].position, Quaternion.identity, transform);
-
+            newPlant.GetComponent<InteractableSeed>().interactable = false;
+            newPlantTwo.GetComponent<InteractableSeed>().interactable = false;
+            newPlant.GetComponent<InteractableSeed>().highlightable = false;
+            newPlantTwo.GetComponent<InteractableSeed>().highlightable = false;
         }
         if (player.plainsSeedsCount.Value > 0 || spawnPlains)
         {
             GameObject newPlant = Instantiate(plainsPlant, plantLocations[3].position, Quaternion.identity, transform);
             GameObject newPlantTwo = Instantiate(plainsPlant, plantLocations[7].position, Quaternion.identity, transform);
-
+            newPlant.GetComponent<InteractableSeed>().interactable = false;
+            newPlantTwo.GetComponent<InteractableSeed>().interactable = false; 
+            newPlant.GetComponent<InteractableSeed>().highlightable = false;
+            newPlantTwo.GetComponent<InteractableSeed>().highlightable = false;
         }
     }
 
