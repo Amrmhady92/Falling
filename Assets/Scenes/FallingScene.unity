@@ -7338,8 +7338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e9a708f93734ea489d41897507c875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenGustsMinMax: {x: 3, y: 5}
-  gustSpeedMinMax: {x: 1.5, y: 2.5}
+  timeBetweenGustsMinMax: {x: 4, y: 8}
+  gustSpeedMinMax: {x: 1.5, y: 2}
   randomDirectionMin: {x: -4, y: 0, z: -1}
   randomDirectionMax: {x: 4, y: 1, z: -1}
   gustPrefab: {fileID: 7605401904169522822, guid: a5bc44465b44b4947a70594c8b94c28f, type: 3}
@@ -10443,6 +10443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   landingPlaceName: 
   restartPosition: {x: 0, y: 0, z: 0}
+  landings: 0
 --- !u!4 &1942845983
 Transform:
   m_ObjectHideFlags: 0
