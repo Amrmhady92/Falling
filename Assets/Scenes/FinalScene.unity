@@ -996,8 +996,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b83f3dcc82e646f7a9ba3b3dc94d3e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDesert: 0
-  spawnForest: 0
+  spawnDesert: 1
+  spawnForest: 1
   spawnCliffs: 0
   spawnPlains: 0
   plantLocations:
