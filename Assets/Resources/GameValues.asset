@@ -14,17 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWorld: 1
   popupMessagesPlantsDesert:
-  - 
-  - 
+  - "A bush in bloom. I\u2019ll take some of its seeds."
   popupMessagesPlantsForest:
-  - You picked up a forest plant
-  - A forest plant you picked up
+  - "A crimson bush. I\u2019ll take some of its seeds."
   popupMessagesPlantsRocky:
-  - 
-  - 
+  - "A lush bush. I\u2019ll take some of its seeds."
   popupMessagesPlantsPlains:
-  - 
-  - 
+  - "A type of fern. I\u2019ll take some of its seeds."
   popupMessagesGroundDesert:
   - This place is too dry for you. Don't you think?
   - The soil here is pretty dry, huh?

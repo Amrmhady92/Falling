@@ -76,7 +76,7 @@ public class GameValues : ScriptableObject
                     return "This seeds seems good";
             case World.Forest:
 
-                if (popupMessagesGroundForest.Length > 0)
+                if (popupMessagesPlantsForest.Length > 0)
                     return popupMessagesPlantsForest.GetRandomValue();
                 else
                     return "This seeds seems good";
