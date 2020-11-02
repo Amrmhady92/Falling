@@ -122,8 +122,11 @@ public class Player : MonoBehaviour
         {
             ScanArea();
         }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            GetComponent<MessagePopUp>().CancelMessage();
+        }
 
-        
     }
 
 
