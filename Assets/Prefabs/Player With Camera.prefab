@@ -3411,6 +3411,7 @@ MonoBehaviour:
   cc: {fileID: 0}
   tpCamera: {fileID: 0}
   cameraMain: {fileID: 0}
+  canJump: 0
 --- !u!54 &2880783024083330602
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3458,6 +3459,7 @@ MonoBehaviour:
   rockySeedsCount: {fileID: 11400000, guid: ed1efe81b03b9b04f87c1444acb83bfc, type: 2}
   plainsSeedsCount: {fileID: 11400000, guid: dd227ca3b3c09d947b2102bb4d9efce5, type: 2}
   gameValues: {fileID: 11400000, guid: 59a43103c56ff54409d2a025be94c9b8, type: 2}
+  currentWorld: 0
   interactRadius: 0.7
   animator: {fileID: 0}
   scanner: {fileID: 1914275168133341531}
@@ -4655,6 +4657,8 @@ GameObject:
   - component: {fileID: 3311422325430634967}
   - component: {fileID: 3311422325430634964}
   - component: {fileID: 3311422325430634965}
+  - component: {fileID: 1921676249098922204}
+  - component: {fileID: 1423870899710042152}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -4727,6 +4731,83 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3311422325430634962}
   m_Enabled: 1
+--- !u!114 &1921676249098922204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3311422325430634962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 3311422325430634967}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
+--- !u!114 &1423870899710042152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3311422325430634962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: c3e8c8d18103add4fa0e95ca0726cfa6, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &3339318394220611428
 GameObject:
   m_ObjectHideFlags: 0
