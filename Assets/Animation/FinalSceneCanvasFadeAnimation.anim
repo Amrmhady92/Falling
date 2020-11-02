@@ -19,7 +19,7 @@ AnimationClip:
   m_FloatCurves: []
   m_PPtrCurves: []
   m_SampleRate: 60
-  m_WrapMode: 0
+  m_WrapMode: 1
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -55,48 +55,48 @@ AnimationClip:
     functionName: FadeIn
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0.9
+    floatParameter: 0.8
     intParameter: 0
     messageOptions: 0
   - time: 7
     functionName: FadeOut
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0.9
+    floatParameter: 0.8
     intParameter: 0
     messageOptions: 0
   - time: 13
     functionName: FadeIn
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0.9
+    floatParameter: 0.8
     intParameter: 0
     messageOptions: 0
   - time: 14
     functionName: FadeOut
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0.9
+    floatParameter: 0.8
     intParameter: 0
     messageOptions: 0
   - time: 20
     functionName: FadeIn
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 1
+    floatParameter: 0.8
     intParameter: 0
     messageOptions: 0
   - time: 21
     functionName: FadeOut
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0.9
+    floatParameter: 0.8
     intParameter: 0
     messageOptions: 0
   - time: 27
     functionName: FadeIn
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0.9
+    floatParameter: 0.8
     intParameter: 0
     messageOptions: 0
