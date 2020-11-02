@@ -7200,7 +7200,7 @@ MonoBehaviour:
   moveSpeed: 2
   turnSpeed: 8
   fallSpeed: 4
-  moveSpeedIncreaseIfTiltingForward: 2
+  moveSpeedIncreaseIfTiltingForward: 3
   fallSpeedIncreaseIfTiltingForward: 2
   unlandable:
     serializedVersion: 2
@@ -7339,7 +7339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenGustsMinMax: {x: 4, y: 8}
-  gustSpeedMinMax: {x: 1.5, y: 2}
+  gustSpeedMinMax: {x: 0.4, y: 1}
   randomDirectionMin: {x: -4, y: 0, z: -1}
   randomDirectionMax: {x: 4, y: 1, z: -1}
   gustPrefab: {fileID: 7605401904169522822, guid: a5bc44465b44b4947a70594c8b94c28f, type: 3}

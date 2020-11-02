@@ -1021,11 +1021,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5103919429540034000, guid: 6e938e70572ca4c93b4a255ada77b97f, type: 3}
       propertyPath: m_Size.y
-      value: 8.97
+      value: 13.55
       objectReference: {fileID: 0}
     - target: {fileID: 5103919429540034000, guid: 6e938e70572ca4c93b4a255ada77b97f, type: 3}
       propertyPath: m_Size.x
-      value: 9.69
+      value: 12.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103919429540034000, guid: 6e938e70572ca4c93b4a255ada77b97f, type: 3}
+      propertyPath: m_Size.z
+      value: 21.62
       objectReference: {fileID: 0}
     - target: {fileID: 5103919429540034002, guid: 6e938e70572ca4c93b4a255ada77b97f, type: 3}
       propertyPath: m_Name
