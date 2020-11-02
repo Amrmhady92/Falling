@@ -6,27 +6,33 @@ public class ConfirmEndGame : MonoBehaviour
 {
     public InteractablePlantingGround plantingGround;
     MessagePopUp messagePopUp;
+    bool inTrigger = false;
 
     private void Start()
     {
         messagePopUp = FindObjectOfType<MessagePopUp>();
 
     }
-    
-    private void OnTriggerEnter(Collider other)
+
+    private void Update()
     {
-        messagePopUp.PopMessage("press E to confirm planting", true, plantingGround.timeToDecideToPlant);
+        if (inTrigger) {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                StartCoroutine(plantingGround.ConfirmPlanting());
+            }
+        }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.E)) {
-            StartCoroutine(plantingGround.ConfirmPlanting());
-        }
+        inTrigger = true;
+        messagePopUp.PopMessage("press E to confirm planting", true, plantingGround.timeToDecideToPlant);
     }
 
     private void OnTriggerExit(Collider other)
     {
+        inTrigger = false;
         messagePopUp.CancelMessage(false);
         gameObject.SetActive(false);
     }

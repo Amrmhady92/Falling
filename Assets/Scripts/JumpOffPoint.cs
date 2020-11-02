@@ -13,6 +13,8 @@ public class JumpOffPoint : MonoBehaviour
     public bool outOfWind;
     public GameObject windGust;
 
+    bool inTrigger = false;
+
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -26,9 +28,25 @@ public class JumpOffPoint : MonoBehaviour
 
 
     }
+    private void Update()
+    {
+        if (inTrigger) {
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (!returning)
+                {
+                    print("HEY");
+                    StartCoroutine(gameManager.ReturnToMainScene());
+                    returning = true;
+                }
+            }
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
+        inTrigger = true;
         //Show text "press space to jump off"
         if (outOfWind)
         {
@@ -41,20 +59,9 @@ public class JumpOffPoint : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (!returning)
-            {
-                print("HEY");
-                StartCoroutine(gameManager.ReturnToMainScene());
-                returning = true;
-            }
-        }
-    }
     private void OnTriggerExit(Collider other)
     {
+        inTrigger = false;
         controller.canJump = false;
     }
 }
