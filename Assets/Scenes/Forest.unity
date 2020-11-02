@@ -12641,6 +12641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5550481127333360094, guid: 9b1a7cb381d4249c3999391672ae93d0, type: 3}
+      propertyPath: landingPlaceName
+      value: Forest
+      objectReference: {fileID: 0}
     - target: {fileID: 5550481127333360095, guid: 9b1a7cb381d4249c3999391672ae93d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
