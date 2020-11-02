@@ -7210,7 +7210,7 @@ MonoBehaviour:
   rotationAnimator: {fileID: 850427582}
   myRigidbody: {fileID: 1333289544}
   diveWind: {fileID: 102497354}
-  noWindDistanceThreshold: 25
+  noWindDistanceThreshold: 0
   withinDistanceThreshold: 0
 --- !u!136 &1333289543
 CapsuleCollider:
@@ -7338,8 +7338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e9a708f93734ea489d41897507c875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenGustsMinMax: {x: 2, y: 5}
-  gustSpeedMinMax: {x: 1.5, y: 3}
+  timeBetweenGustsMinMax: {x: 3, y: 5}
+  gustSpeedMinMax: {x: 1.5, y: 2.5}
   randomDirectionMin: {x: -4, y: 0, z: -1}
   randomDirectionMax: {x: 4, y: 1, z: -1}
   gustPrefab: {fileID: 7605401904169522822, guid: a5bc44465b44b4947a70594c8b94c28f, type: 3}
