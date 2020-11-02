@@ -52,21 +52,7 @@ public class MessagePopUp : MonoBehaviour
                     StartCoroutine(WaitThenDo(1, () =>
                     {
                         messageUp = false;
-                        while (queuedMessages.Count > 0 && messageUp == false)
-                        {
-                            if (Time.time - queuedMessages[0].sentTime < 5)
-                            {
-                                //Send Unexpired message
-                                PopMessage(queuedMessages[0].message, false, queuedMessages[0].duration);
-                                queuedMessages.RemoveAt(0);
-                                break;
-                            }
-                            else
-                            {
-                                Debug.Log("Message expired");
-                                queuedMessages.RemoveAt(0);
-                            }
-                        }
+                        GetQueueMessage();
 
                     }));
 
@@ -76,7 +62,34 @@ public class MessagePopUp : MonoBehaviour
 
     }
 
+    private void GetQueueMessage()
+    {
+        while (queuedMessages.Count > 0 && messageUp == false)
+        {
+            if (Time.time - queuedMessages[0].sentTime < 5)
+            {
+                //Send Unexpired message
+                PopMessage(queuedMessages[0].message, false, queuedMessages[0].duration);
+                queuedMessages.RemoveAt(0);
+                break;
+            }
+            else
+            {
+                Debug.Log("Message expired");
+                queuedMessages.RemoveAt(0);
+            }
+        }
+    }
 
+    public void CancelMessage(bool playQueued = false)
+    {
+        StopAllCoroutines();
+        LeanTween.cancel(messageObject);
+        messageObject.transform.localScale = Vector3.zero;
+        messageObject.SetActive(false);
+        messageUp = false;
+        if (playQueued) GetQueueMessage();
+    }
     IEnumerator WaitThenDo(float wait, System.Action callbackDo)
     {
         yield return new WaitForSeconds(wait);
