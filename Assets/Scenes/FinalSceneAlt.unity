@@ -475,10 +475,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b83f3dcc82e646f7a9ba3b3dc94d3e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDesert: 1
-  spawnForest: 1
+  spawnDesert: 0
+  spawnForest: 0
   spawnCliffs: 0
-  spawnPlains: 0
+  spawnPlains: 1
   plantLocations:
   - {fileID: 1898071463}
   - {fileID: 1072570853}
@@ -1878,10 +1878,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b83f3dcc82e646f7a9ba3b3dc94d3e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDesert: 1
-  spawnForest: 1
+  spawnDesert: 0
+  spawnForest: 0
   spawnCliffs: 0
-  spawnPlains: 0
+  spawnPlains: 1
   plantLocations:
   - {fileID: 1732893150}
   - {fileID: 616111859}
@@ -3002,10 +3002,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b83f3dcc82e646f7a9ba3b3dc94d3e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDesert: 1
-  spawnForest: 1
+  spawnDesert: 0
+  spawnForest: 0
   spawnCliffs: 0
-  spawnPlains: 0
+  spawnPlains: 1
   plantLocations:
   - {fileID: 1653247860}
   - {fileID: 2128618493}
@@ -3481,10 +3481,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b83f3dcc82e646f7a9ba3b3dc94d3e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDesert: 1
-  spawnForest: 1
+  spawnDesert: 0
+  spawnForest: 0
   spawnCliffs: 0
-  spawnPlains: 0
+  spawnPlains: 1
   plantLocations:
   - {fileID: 232531371}
   - {fileID: 1958912124}
@@ -3550,10 +3550,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b83f3dcc82e646f7a9ba3b3dc94d3e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDesert: 1
-  spawnForest: 1
+  spawnDesert: 0
+  spawnForest: 0
   spawnCliffs: 0
-  spawnPlains: 0
+  spawnPlains: 1
   plantLocations:
   - {fileID: 2090763176}
   - {fileID: 1992031197}
