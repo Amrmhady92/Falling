@@ -26,8 +26,8 @@ public class FinalGarden : MonoBehaviour
         if (player.desertSeedsCount.Value > 0 || spawnDesert) {
             GameObject newPlant = Instantiate(desertPlant, plantLocations[0].position,Quaternion.identity, transform);
             GameObject newPlantTwo = Instantiate(desertPlant, plantLocations[4].position, Quaternion.identity, transform);
-            newPlant.transform.localScale = new Vector3(.7f, .7f, .7f);
-            newPlantTwo.transform.localScale = new Vector3(.7f, .7f, .7f);
+            newPlant.transform.localScale = new Vector3(.35f, .35f, .35f);
+            newPlantTwo.transform.localScale = new Vector3(.35f, .35f, .35f);
             newPlant.GetComponent<InteractableSeed>().interactable = false;
             newPlantTwo.GetComponent<InteractableSeed>().interactable = false;
             newPlant.GetComponent<InteractableSeed>().highlightable = false;

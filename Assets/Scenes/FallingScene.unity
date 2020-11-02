@@ -7102,9 +7102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   turnSpeed: 8
-  fallSpeed: 3
-  moveSpeedIncreaseIfTiltingForward: 1
-  fallSpeedIncreaseIfTiltingForward: 1
+  fallSpeed: 4
+  moveSpeedIncreaseIfTiltingForward: 2
+  fallSpeedIncreaseIfTiltingForward: 2
   unlandable:
     serializedVersion: 2
     m_Bits: 4096
@@ -7241,8 +7241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e9a708f93734ea489d41897507c875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenGustsMinMax: {x: 3, y: 8}
-  gustSpeedMinMax: {x: 2, y: 4}
+  timeBetweenGustsMinMax: {x: 2, y: 5}
+  gustSpeedMinMax: {x: 1.5, y: 3}
   randomDirectionMin: {x: -4, y: 0, z: -1}
   randomDirectionMax: {x: 4, y: 1, z: -1}
   gustPrefab: {fileID: 7605401904169522822, guid: a5bc44465b44b4947a70594c8b94c28f, type: 3}

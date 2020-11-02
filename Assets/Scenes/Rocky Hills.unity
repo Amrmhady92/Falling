@@ -947,7 +947,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3373645156756226212, guid: 0904bc1c2ec81d2489172863f26c7164, type: 3}
       propertyPath: messageOnInteract
-      value: The ground is very rocky.
+      value: Maybe I can find a better place than this, am I sure I want to plant
+        this here?
       objectReference: {fileID: 0}
     - target: {fileID: 3373645156756226212, guid: 0904bc1c2ec81d2489172863f26c7164, type: 3}
       propertyPath: displayMessageOnInteraction
@@ -1017,6 +1018,14 @@ PrefabInstance:
     - target: {fileID: 5103919429057831643, guid: 6e938e70572ca4c93b4a255ada77b97f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103919429540034000, guid: 6e938e70572ca4c93b4a255ada77b97f, type: 3}
+      propertyPath: m_Size.y
+      value: 8.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103919429540034000, guid: 6e938e70572ca4c93b4a255ada77b97f, type: 3}
+      propertyPath: m_Size.x
+      value: 9.69
       objectReference: {fileID: 0}
     - target: {fileID: 5103919429540034002, guid: 6e938e70572ca4c93b4a255ada77b97f, type: 3}
       propertyPath: m_Name

@@ -10026,7 +10026,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3373645156756226212, guid: 0904bc1c2ec81d2489172863f26c7164, type: 3}
       propertyPath: messageOnInteract
-      value: There is very little sun here.
+      value: Maybe I can find a better place than this, am I sure I want to plant
+        this here?
       objectReference: {fileID: 0}
     - target: {fileID: 3373645156756226213, guid: 0904bc1c2ec81d2489172863f26c7164, type: 3}
       propertyPath: m_LocalPosition.x

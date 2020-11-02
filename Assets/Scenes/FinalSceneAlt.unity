@@ -635,7 +635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &449562120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2317,7 +2317,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-208502
+  m_Name: pb_Mesh-134184
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2772,15 +2772,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3958961111943635722, guid: 4ea64e0711167ce43b4471ca4beb3b3d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.025274
       objectReference: {fileID: 0}
     - target: {fileID: 3958961111943635722, guid: 4ea64e0711167ce43b4471ca4beb3b3d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.24138276
+      value: 0.228
       objectReference: {fileID: 0}
     - target: {fileID: 3958961111943635722, guid: 4ea64e0711167ce43b4471ca4beb3b3d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.015992
       objectReference: {fileID: 0}
     - target: {fileID: 3958961111943635722, guid: 4ea64e0711167ce43b4471ca4beb3b3d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2813,6 +2813,18 @@ PrefabInstance:
     - target: {fileID: 3958961111943635722, guid: 4ea64e0711167ce43b4471ca4beb3b3d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958961111943635722, guid: 4ea64e0711167ce43b4471ca4beb3b3d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4364
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958961111943635722, guid: 4ea64e0711167ce43b4471ca4beb3b3d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4364
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958961111943635722, guid: 4ea64e0711167ce43b4471ca4beb3b3d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4364
       objectReference: {fileID: 0}
     - target: {fileID: 4448112272682531248, guid: 4ea64e0711167ce43b4471ca4beb3b3d, type: 3}
       propertyPath: m_Name
