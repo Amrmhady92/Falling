@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinalScene.unity
     guid: 1e40c385311354ec9840fdeacfb6344d
+  - enabled: 1
+    path: Assets/Scenes/FinalSceneAlt.unity
+    guid: 0e65fbd26ebe2e14f867d2b3e9ed1d07
   m_configObjects: {}

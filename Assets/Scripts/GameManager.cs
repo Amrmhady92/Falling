@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator LoadFinalScene() {
         StartCoroutine(FindObjectOfType<UIFade>().FadeIn(0.5f));
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene("FinalScene");
+        SceneManager.LoadScene("FinalSceneAlt");
 
     }
 
