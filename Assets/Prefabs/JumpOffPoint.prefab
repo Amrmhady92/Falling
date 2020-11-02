@@ -91,7 +91,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   col: {fileID: 5103919429540034000}
-  controller: {fileID: 0}
+  outOfWind: 0
+  windGust: {fileID: 5103919429057831642}
 --- !u!1001 &5103919429566317616
 PrefabInstance:
   m_ObjectHideFlags: 0

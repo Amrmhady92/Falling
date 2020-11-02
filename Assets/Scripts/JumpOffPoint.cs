@@ -10,6 +10,8 @@ public class JumpOffPoint : MonoBehaviour
     GameManager gameManager;
     MessagePopUp messagePopUp;
     bool returning = false;
+    public bool outOfWind;
+    public GameObject windGust;
 
     private void Start()
     {
@@ -17,14 +19,26 @@ public class JumpOffPoint : MonoBehaviour
         col = GetComponent<BoxCollider>();
         controller = FindObjectOfType<vThirdPersonInput>();
         messagePopUp = FindObjectOfType<MessagePopUp>();
-                
+        if (gameManager.landings  == 2) {
+            outOfWind = true;
+            windGust.SetActive(false);
+        }
+
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         //Show text "press space to jump off"
-        controller.canJump = true;
-        messagePopUp.PopMessage("press space to jump off", false, 2f);
+        if (outOfWind)
+        {
+            messagePopUp.PopMessage("There is no wind left to carry me up.", false, 2f);
+        }
+        else
+        {
+            controller.canJump = true;
+            messagePopUp.PopMessage("Press space to jump off.", false, 2f);
+        }
     }
 
     private void OnTriggerStay(Collider other)

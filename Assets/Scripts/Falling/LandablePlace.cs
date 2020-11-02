@@ -20,6 +20,7 @@ public class LandablePlace : MonoBehaviour
             }
         }
     }
+    
 
     private void OnTriggerEnter(Collider other)
     {

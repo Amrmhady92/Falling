@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public Vector3 restartPosition;
 
     public bool[,] activeFogSpawnPositions;
+    List<LandablePlace> placesVisisted;
+    public int landings = 0;
 
     // Start is called before the first frame update
     void Awake()
@@ -35,6 +37,7 @@ public class GameManager : MonoBehaviour
     {
         landingPlaceName = scene.placeName;
         restartPosition = scene.takeOffPoint.position;
+
         //restartPosition = scene.transform.position + (Vector3.up * 20);
         StartCoroutine(FindObjectOfType<UIFade>().FadeIn(delay));
         yield return new WaitForSeconds(delay);
@@ -46,6 +49,7 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(FindObjectOfType<UIFade>().FadeIn(0.5f));
         yield return new WaitForSeconds(0.5f);
+        landings++;
         SceneManager.LoadScene("FallingScene");
 
         List<LandablePlace> places = new List<LandablePlace>(FindObjectsOfType<LandablePlace>());
