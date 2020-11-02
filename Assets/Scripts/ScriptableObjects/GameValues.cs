@@ -18,7 +18,10 @@ public class GameValues : ScriptableObject
 
 
 
-    public string[] popupMessagesPlants;
+    public string[] popupMessagesPlantsDesert;
+    public string[] popupMessagesPlantsForest;
+    public string[] popupMessagesPlantsRocky;
+    public string[] popupMessagesPlantsPlains;
 
     public string[] popupMessagesGroundDesert;
     public string[] popupMessagesGroundForest;
@@ -64,8 +67,37 @@ public class GameValues : ScriptableObject
 
     public string GetSeedMessage()
     {
-        if (popupMessagesPlants.Length > 0) return popupMessagesPlants.GetRandomValue();
-        else return "This seeds seems good";
+        switch (currentWorld)
+        {
+            case World.Desert:
+                if (popupMessagesPlantsDesert.Length > 0)
+                    return popupMessagesPlantsDesert.GetRandomValue();
+                else
+                    return "This seeds seems good";
+            case World.Forest:
+
+                if (popupMessagesGroundForest.Length > 0)
+                    return popupMessagesPlantsForest.GetRandomValue();
+                else
+                    return "This seeds seems good";
+
+            case World.Plains:
+
+                if (popupMessagesPlantsPlains.Length > 0)
+                    return popupMessagesPlantsPlains.GetRandomValue();
+                else
+                    return "This seeds seems good";
+
+            case World.Rocky:
+
+                if (popupMessagesPlantsRocky.Length > 0)
+                    return popupMessagesPlantsRocky.GetRandomValue();
+                else
+                    return "This seeds seems good";
+
+            default:
+                return "";
+        }
     }
 
 

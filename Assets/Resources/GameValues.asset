@@ -13,10 +13,18 @@ MonoBehaviour:
   m_Name: GameValues
   m_EditorClassIdentifier: 
   currentWorld: 1
-  popupMessagesPlants:
-  - Oh what a nice plant, I got a seed to plant it later
-  - I can plant this seed later
-  - Seeds are nice to have
+  popupMessagesPlantsDesert:
+  - 
+  - 
+  popupMessagesPlantsForest:
+  - You picked up a forest plant
+  - A forest plant you picked up
+  popupMessagesPlantsRocky:
+  - 
+  - 
+  popupMessagesPlantsPlains:
+  - 
+  - 
   popupMessagesGroundDesert:
   - This place is too dry for you. Don't you think?
   - The soil here is pretty dry, huh?
