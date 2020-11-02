@@ -84,8 +84,8 @@ public class InteractablePlantingGround : InteractableObject
         //"this will have to do"
         messagePopUp.CancelMessage(true);
         messagePopUp.PopMessage("This will have to do...", true, 3f);
-        FindObjectOfType<Player>().DisableControllers();
-        yield return new WaitForSeconds(4f);
+        //FindObjectOfType<Player>().DisableControllers();
+        yield return new WaitForSeconds(3f);
         StartCoroutine(GameManager.instance.LoadFinalScene());
     }
 
