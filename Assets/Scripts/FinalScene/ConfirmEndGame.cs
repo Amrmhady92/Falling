@@ -28,5 +28,6 @@ public class ConfirmEndGame : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         messagePopUp.CancelMessage(false);
+        gameObject.SetActive(false);
     }
 }
