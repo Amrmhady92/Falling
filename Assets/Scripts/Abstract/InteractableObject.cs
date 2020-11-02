@@ -53,6 +53,7 @@ public abstract class InteractableObject : MonoBehaviour
     public virtual void SetSelectedHighlight(bool onOff)
     {
         if (!highlightable) return;
+
         if (outliner.enabled && onOff)
         {
             outliner.OutlineColor = selectedOutlineColor;

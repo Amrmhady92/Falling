@@ -33,7 +33,7 @@ public class InteractableSeed : InteractableObject
                 player.GetComponent<MessagePopUp>().PopMessage(msg, msg != "", 3);
             }
         }
-        transform.LeanScale(Vector3.zero, descaleTime).setOnComplete(() => { this.gameObject.SetActive(false); });
+        //transform.LeanScale(Vector3.zero, descaleTime).setOnComplete(() => { this.gameObject.SetActive(false); });
     }
 
 }

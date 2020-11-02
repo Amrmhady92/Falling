@@ -60,8 +60,8 @@ public class InteractablePlantingGround : InteractableObject
         }
 
 
-        billboard.transform.LeanScale(billboardEndScale, riseUpTime);
-        billboard.transform.LeanMove(billboard.transform.position + Vector3.up * billboardHeight, riseUpTime);
+        //billboard.transform.LeanScale(billboardEndScale, riseUpTime);
+        //billboard.transform.LeanMove(billboard.transform.position + Vector3.up * billboardHeight, riseUpTime);
 
     }
 

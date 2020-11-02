@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
                 for (int i = 0; i < hits.Length; i++)
                 {
                     hitObejct = hits[i].gameObject.GetComponent<InteractableObject>();
-                    if (hitObejct != null)
+                    if (hitObejct != null && hitObejct.interactable)
                     {
                         foundInteractable = true;
                         if (Vector3.Distance(hitObejct.transform.position, this.transform.position) < maxDistance)
