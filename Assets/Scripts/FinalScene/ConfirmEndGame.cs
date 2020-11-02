@@ -21,7 +21,12 @@ public class ConfirmEndGame : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (Input.GetKeyDown(KeyCode.E)) {
-            plantingGround.ConfirmPlanting();
+            StartCoroutine(plantingGround.ConfirmPlanting());
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        messagePopUp.CancelMessage(false);
     }
 }

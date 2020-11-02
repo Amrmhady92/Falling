@@ -80,8 +80,12 @@ public class InteractablePlantingGround : InteractableObject
         Invoke("TurnOffConfirmer", timeToDecideToPlant);
     }
 
-    public void ConfirmPlanting() {
-
+    public IEnumerator ConfirmPlanting() {
+        //"this will have to do"
+        messagePopUp.CancelMessage(true);
+        messagePopUp.PopMessage("This will have to do...", true, 3f);
+        FindObjectOfType<Player>().DisableControllers();
+        yield return new WaitForSeconds(4f);
         StartCoroutine(GameManager.instance.LoadFinalScene());
     }
 
